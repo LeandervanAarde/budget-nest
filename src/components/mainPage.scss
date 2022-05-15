@@ -1,0 +1,8 @@
+@import "/src/components/variables.scss";
+
+.contentCon{
+    height: auto;
+    min-height: 100vh;
+    background-color: lighten($black, 2%);
+    padding: 1%;
+}

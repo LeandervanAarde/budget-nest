@@ -1,0 +1,22 @@
+//Colors 
+    $purple: #7F6EE1;
+    $darkendedPurple: darken($purple, 53%) ;
+    $black : #181834;
+//Fonts 
+
+// typefaces 
+
+//Mixins 
+@mixin backgroundBlur {
+    background-color: rgba($darkendedPurple, .5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+@mixin shadow{
+    box-shadow: -2px 5px 21px -3px rgba(15,15,15,0.28);
+-webkit-box-shadow: -2px 5px 21px -3px rgba(15,15,15,0.28);
+-moz-box-shadow: -2px 5px 21px -3px rgba(15,15,15,0.28);
+}
+//General shape.
+$borderRad: 9px;

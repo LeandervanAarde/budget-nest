@@ -1,0 +1,36 @@
+@import "/src/components/variables.scss";
+
+.navCon{
+    height: auto;
+    min-height: 10vh;
+    max-height: 13vh;
+    @include  backgroundBlur ;
+    @include shadow; 
+    color: white;
+    border-radius: $borderRad;
+    margin-bottom: 2vh;
+
+    .logo{
+        height: 10vh;
+        background-image: url("../../../../public/Assests/Logo2.svg");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+       float: left;
+    }
+
+    .item{
+        margin-left: 7vw !important;
+    }
+    h5{
+    float: left;
+        margin-left: 4vw;
+        margin-top: 3.5vh;
+        transition: 0.4 ease-in-out;
+
+        &:hover{
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    }
+}

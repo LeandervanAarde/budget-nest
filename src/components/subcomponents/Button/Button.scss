@@ -1,0 +1,19 @@
+@import "../../variables.scss";
+
+.button{
+    background-color: $purple;
+    border-radius: $borderRad;
+    height: auto;
+    min-height: 4vh;
+    padding: 2%;
+    text-align: center;
+    margin-top: 5vh;
+
+   .icon{
+       float: left;
+   }
+
+   p{
+       padding-top: 1vh;
+   }
+}

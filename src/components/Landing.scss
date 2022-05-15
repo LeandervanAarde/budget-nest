@@ -1,0 +1,25 @@
+@import "/src/components/variables.scss";
+
+.backgroundCon{
+    height: 100vh;
+    background-image: url("../../public/Assests/Landing-Img.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.introCon{
+    height: 50vh;
+    margin-top: 25vh;
+    @include  backgroundBlur ;
+    border-radius: $borderRad;
+    text-align: center;
+    padding: 2vh;
+}
+
+.logoCon{
+    height: 18vh;
+    background-image: url("../../public/Assests/Logo.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat
+}
