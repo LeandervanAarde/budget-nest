@@ -2,3 +2,14 @@
 @import "/src/components/subcomponents/Button/Button.scss";
 @import "/src/components/mainPage.scss";
 @import "/src/components/subcomponents/Navigation/Navigation.scss";
+@import "/src/components/subcomponents/IncomeOverview.js/IncomeOverview.scss";
+
+.content{
+    background-color: lighten($black, 2%);
+    height: 90vh;
+}
+
+html{
+    background-color: lighten($black, 2%);
+}
+

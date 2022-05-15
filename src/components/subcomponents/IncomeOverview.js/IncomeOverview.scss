@@ -1,0 +1,8 @@
+@import "/src/components/variables.scss";
+
+.IncomeOvervw{
+    background-color: darken($purple, 53%);
+    @include shadow; 
+    height: 84.8vh;
+    border-radius: $borderRad;
+}
