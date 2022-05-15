@@ -5,4 +5,25 @@
     @include shadow; 
     height: 84.8vh;
     border-radius: $borderRad;
+    padding-top: 5vh;
+
+    .information{
+        color: white;
+        margin-top: 5vh;
+        margin-bottom: 2vh;
+    }
+
+    .userContent{
+        color: white;
+    
+    }
+
+    .finalIncome{
+        color: white;
+    }
+
+    .head{
+        color: white;
+        margin-top: 7vh !important;
+    }
 }

@@ -9,7 +9,13 @@ const Main = () => {
             <Navigation />
 
             <Col sm={12} md={2} className="content">
-                <IncomeOverview />
+                <IncomeOverview 
+                house = "van Aarde"
+                price = "12 000.00"
+                taxprice = "1800.00"
+                taxBrack = "15"
+                aftTax = {"10200.00"}
+                />
             </Col>
 
             <Col sm={12} md={10} className="content">
