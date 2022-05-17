@@ -1,0 +1,14 @@
+.infoBlock{
+    background-color: $background;
+    aspect-ratio: 1.7/1;
+    display: inline-block;
+    margin-top: 5vh;
+    margin-left: 4vw;
+    @include shadow;
+    padding-top: 2vh;
+
+    h4, h5, p{
+        color: white;
+    }
+    
+}

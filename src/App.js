@@ -5,6 +5,8 @@ import { Routes, Route } from 'react-router-dom';
 import './index.scss';
 import Landing from "./components/Landing";
 import Main from "./components/Main";
+import TotalExpense from "./components/TotalExpense";
+import TotalSavings from "./components/TotalSavings";
 function App() {
   const [showPage, setShowPage] = useState(false);
 
@@ -19,10 +21,13 @@ function App() {
             func={showDash}
           />
         )
-          :(
+          : (
             <Routes>
-            <Route path="/" element={<Main />}></Route>
-          </Routes>
+              <Route path="/" element={<Landing />}></Route>
+              <Route path="/Home" element={<Main />}></Route>
+              <Route path="/TotalExpenses" element={<TotalExpense />}></Route>
+              <Route path="/TotalSavings" element={<TotalSavings />}></Route>
+            </Routes>
           )}
       </Row>
     </Container>

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Col } from 'react-bootstrap';
 import Button from './subcomponents/Button/Button';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
 
 const Landing = (props) => {
@@ -14,7 +14,7 @@ const Landing = (props) => {
             <Col sm={{span:4, offset:4}} className="logoCon"> </Col>
             <h1>Finance Tracker</h1>
             <h2>Track and budget all your household finances</h2>
-            <Link to="/">
+            <NavLink to="/Home">
             <Col sm={{span: 8, offset: 2}} md={{span: 4, offset: 4}}>
                 <Button
                     text = "Get Started"
@@ -22,7 +22,7 @@ const Landing = (props) => {
                     function = {props.func}
                 />
             </Col>
-            </Link>
+            </NavLink>
          </Col>
      </Col>
     );

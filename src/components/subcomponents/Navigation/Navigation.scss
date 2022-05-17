@@ -1,36 +1,73 @@
 @import "/src/components/variables.scss";
 
-.navCon{
-    height: auto;
-    min-height: 10vh;
-    max-height: 13vh;
-    @include  backgroundBlur ;
-    @include shadow; 
-    color: white;
-    border-radius: $borderRad;
-    margin-bottom: 1.5vh;
+.navCon {
+    background-color: darken($background, 5%);
+    height: 100vh;
+    padding-top: 5vh;
+    padding-left: 1vw;
+    position: fixed;
 
-    .logo{
-        height: 10vh;
-        background-image: url("../../../../public/Assests/Logo2.svg");
+    .logoCon {
+        height: 14vh;
+        background-image: url("../../../../public/Assests/Logo.svg");
         background-position: center;
         background-size: contain;
-        background-repeat: no-repeat;
-       float: left;
+        margin-bottom: 10vh;
     }
 
-    .item{
-        margin-left: 7vw !important;
-    }
-    h5{
-    float: left;
-        margin-left: 4vw;
-        margin-top: 3.5vh;
-        transition: 0.4 ease-in-out;
+    .navItem {
 
-        &:hover{
-            transform: scale(1.1);
-            cursor: pointer;
+        height: 5vh;
+        padding-left: 10px;
+        margin-bottom: 9vh;
+        letter-spacing: 0;
+
+        .text {
+            color: white;
+            display: inline-block;
+            text-align: center;
+            margin-left: 0.5vw;
+            margin-top: 1vh;
         }
+
+        &:hover {
+            letter-spacing: 2px;
+            cursor: pointer;
+
+            :after,
+            :before {
+                backface-visibility: hidden;
+                border-color: white;
+                transform: width 350ms ease-in-out;
+                width: 100%;
+                border: 1px solid white;
+
+            }
+        }
+
+        :after,
+        :before {
+            backface-visibility: hidden;
+            border: 0px solid white;
+            bottom: 0;
+
+            content: " ";
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            transition: all 280ms ease-in-out;
+            width: 0px;
+        }
+
+        :nth-child(1) {
+            transition: 0.3 ease-in-out;
+        }
+
+        &:hover :nth-child(1) {
+            color: $purple  !important;
+        }
+    }
+    .btnCon {
+        margin-top: 20vh;
     }
 }

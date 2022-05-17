@@ -4,16 +4,22 @@
     background-color: $purple;
     border-radius: $borderRad;
     height: auto;
-    min-height: 4vh;
-    padding: 2%;
+    max-height: 5vh;
     text-align: center;
     margin-top: 5vh;
+    padding-top: 8px !important;
+    padding-bottom: 1px;
+    color: white;
+    transition: 0.3 ease-in-out;
+    :nth-child(1){
+        display: inline-block;
+    }
 
-   .icon{
-       float: left;
-   }
-
-   p{
-       padding-top: 1vh;
-   }
+    :nth-child(2){
+        display: inline-block;
+    }
+    .icon{
+        float: left;
+    }
 }
+

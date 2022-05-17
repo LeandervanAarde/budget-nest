@@ -2,14 +2,19 @@
 @import "/src/components/subcomponents/Button/Button.scss";
 @import "/src/components/mainPage.scss";
 @import "/src/components/subcomponents/Navigation/Navigation.scss";
-@import "/src/components/subcomponents/IncomeOverview.js/IncomeOverview.scss";
+@import "/src/components/subcomponents/moneyInfo/info.scss";
+@import "/src/components/subcomponents/householdInfo/household.scss";
 
 .content{
-    background-color: lighten($black, 2%);
-    height: 90vh;
+    background-color: $background;
+    
 }
 
 html{
-    background-color: lighten($black, 2%);
+    background-color: $background;
+    padding: 0 !important;
 }
 
+.container-fluid{
+    padding: 0 !important;
+}
