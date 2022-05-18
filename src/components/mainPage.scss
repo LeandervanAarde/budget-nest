@@ -91,4 +91,16 @@
             transform: scale(1.1);
         }
     }
+
+    .chartCon{
+        background-color: $background;
+        aspect-ratio: 1/1;
+        display: inline-block;
+        margin-top: 5vh;
+        margin-left: 4vw;
+        @include shadow;
+        padding-top: 2vh;
+        padding-right: 2vw;
+
+    }
 }

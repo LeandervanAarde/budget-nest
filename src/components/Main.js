@@ -5,9 +5,11 @@ import Info from './subcomponents/moneyInfo/Info';
 import Button from './subcomponents/Button/Button';
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import Household from './subcomponents/householdInfo/Household';
-
+import DoughnutChart from './subcomponents/Charts/DougnutChart';
+import BarChart from './subcomponents/Charts/BarChart';
+import PolarAreaChart from './subcomponents/Charts/PolarAreaChart';
 const Main = () => {
-    
+
     return (
         <>
             <Col md={2} className="leftCon">
@@ -33,12 +35,27 @@ const Main = () => {
                 />
                 <Col md={{ span: 11 }}>
                     <form>
-                        <input className='input' type={"text"} id='one' />
-                        <input className='input' type={"number"} />
+                        <input className='input' placeholder='Enter name...' type={"text"} id='one' />
+                        <input className='input' placeholder='Enter amount...' type={"number"} />
                         <Col md={2} className="butn"><Button id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
                     </form>
                 </Col>
-                    
+
+                <h2 className='household'>Household Name</h2>
+                <Household />
+
+                <Col md={3} className="chartCon">
+                    <BarChart/>
+                </Col>
+
+                <Col md={3} className="chartCon">
+                    <DoughnutChart/>
+                </Col>
+
+                <Col md={3} className="chartCon">
+                    <PolarAreaChart/>
+                </Col>
+
             </Col>
         </>
     );
@@ -49,8 +66,7 @@ export default Main;
 
 
 {/* <h2 className='household'>Household Name</h2>
-                    <Household/>
-                    <h2 className='household mb-4'>Monthly expenses and savings</h2>
+   
                     <form>
                         <select placeholder='Select Member' className='drop me-4'>
                             <option defaultValue={true} disabled={true}>Select member</option>
