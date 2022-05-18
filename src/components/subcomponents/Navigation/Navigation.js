@@ -29,10 +29,11 @@ const Navigation = () => {
             </NavLink>
 
             <NavLink to="/">
-            <Col md={{ span: 8, offset: 2 }} className="btnCon">
+            <Col md={{ span: 8, offset: 2 }} className="btnCon" id="but">
                 <Button
                     icon={<RiLogoutBoxLine color={'white'} size={25} />}
                     text="Exit"
+                    id = "exbt"
                 />
             </Col>
             </NavLink>

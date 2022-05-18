@@ -5,7 +5,6 @@ const PolarAreaChart = () => {
     return (
         <PolarArea data={{
             labels: ["Name1", "Name2", "Name2", "name4", "Name4"],
-
             datasets: [
                 {
                     data: [1, 3, 4, 10, 15, 19,],
@@ -15,9 +14,7 @@ const PolarAreaChart = () => {
                 }
             ],
         }}
-
-            height={100}
-
+            height={350}
             options={{
                 maintainAspectRatio: true,
 
@@ -26,7 +23,6 @@ const PolarAreaChart = () => {
                     animateScale: true,
                     easing: "linear",
                     duration: 2000,
-
                 },
                 scales: {
                     r: {
@@ -56,9 +52,7 @@ const PolarAreaChart = () => {
                             weight: "bold",
                         }
                     },
-
                 },
-
                 legend: {
                     font: {
                         display: true,
@@ -67,9 +61,7 @@ const PolarAreaChart = () => {
                     },
                 },
             }}
-
         />
     );
 };
-
 export default PolarAreaChart;

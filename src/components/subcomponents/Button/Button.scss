@@ -19,7 +19,21 @@
         display: inline-block;
     }
     .icon{
-        float: left;
+        display: inline-block;
     }
 }
+
+#exbt{
+    transition: 0.2s linear;
+
+    &:hover{
+        width: 5vh;
+        color: transparent;
+        padding-left: 0.2922vw;
+        margin-left: 4vw;
+        transform: scale(1.2);
+    }
+        
+    }
+
 

@@ -9,7 +9,6 @@ import DoughnutChart from './subcomponents/Charts/DougnutChart';
 import BarChart from './subcomponents/Charts/BarChart';
 import PolarAreaChart from './subcomponents/Charts/PolarAreaChart';
 const Main = () => {
-
     return (
         <>
             <Col md={2} className="leftCon">
@@ -62,32 +61,3 @@ const Main = () => {
 };
 
 export default Main;
-
-
-
-{/* <h2 className='household'>Household Name</h2>
-   
-                    <form>
-                        <select placeholder='Select Member' className='drop me-4'>
-                            <option defaultValue={true} disabled={true}>Select member</option>
-                        </select>
-                        <input className='expenses' type={"text"} id='one' />
-                        <input className='expenses' type={"number"} />
-                        <Col md={2} className="butn2"><Button id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
-                    </form>
-                    
-                    <Info
-                    heading={"INCOME"}
-                    content={"R 200.00"}
-                    extra={<hr></hr>}
-                />
-                <Info
-                    heading={"TOTAL EXPENSES"}
-                    content={"6"}
-                    extra={<hr></hr>}
-                />
-                <Info
-                    heading={"TOTAL EXPENSE AMOUNT"}
-                    content={"R600"}
-                    extra={<hr></hr>}
-                /> */}
