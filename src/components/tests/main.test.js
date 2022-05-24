@@ -1,5 +1,6 @@
 import { render, screen, } from "@testing-library/react";
-import Main, { addIncome } from "../Main";
+import Main, { addIncome, clickValue } from "../Main";
+
 
 
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -26,5 +27,30 @@ describe("Testing components in the main Component...", () => {
         expect(incomeInput.value).toBe("1000")
 
     });
+
+    test("To see if user input saves when clicking", () =>{
+        render(<Router><Main /></Router>);
+        let nameInput = screen.getByLabelText(/name/i);
+        let incomeInput = screen.getByPlaceholderText(/Enter amount.../i);
+        userEvent.type(nameInput, "Leander van Aarde");
+        userEvent.type(incomeInput, "1000");
+        let btn = screen.queryByText(/ADD INCOME/i);
+        // let newBtn = btn.parentElement.parentElement;
+    });
+
+    test("See if total Income is calculated", () =>{
+        render(<Router><Main /></Router>);
+        let nameInput = screen.getByLabelText(/name/i);
+        let incomeInput = screen.getByPlaceholderText(/Enter amount.../i);
+        let output = screen.getByText(/R 0.00/i)
+        let finalOut = output.innerHTML;
+        userEvent.type(nameInput, "Leander van Aarde");
+        userEvent.type(incomeInput, "1000");
+        // const button = screen.getByTestId(/add/i)
+        // console.log(button)
+      
+
+        // expect(finalOut).toEqual("R 1000.00");
+    })
     
 })

@@ -107,7 +107,17 @@
     }
 
 
+table{
+    width: 84%;
+    text-align: center;
+    margin-left: 5vw;
+    color: white;
 
+    th{
+        height: 7vh;
+        color: $purple;
+    }
+}
 
   
 }

@@ -38,7 +38,7 @@ const Navigation = () => {
                 <Button
                     icon={<RiLogoutBoxLine color={'white'} size={25} />}
                     text="Exit"
-                    id = "exit"
+                    id = "exbt"
                 />
             </Col>
             </NavLink>

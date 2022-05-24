@@ -10,12 +10,13 @@ import BarChart from './subcomponents/Charts/BarChart';
 import PolarAreaChart from './subcomponents/Charts/PolarAreaChart';
 
 const Main = () => {
+
     const [householdIncome, setHouseHoldIncome] = useState([]);
+    const [total, setTotal] = useState(0);
     const name = useRef()
     const income = useRef();
 
-    const clickValue = (e) => {
-        e.preventDefault();
+    const clickValue = () => {
         //get the value
         let uName = name.current.value;
         let uIncome = income.current.value;
@@ -23,14 +24,15 @@ const Main = () => {
         let userIncome = {
             id: Math.random() * 10,
             name: uName,
-            Income: uIncome
+            Income: (+ uIncome)
         }
         setHouseHoldIncome((prevState) => (
             [...prevState, userIncome]
         ))
+        const result = householdIncome.map((item) => (item.Income)).reduce((accumulator, currVal) => accumulator + currVal, (+ uIncome));
+        setTotal(result);
     }
-    // console.log(householdIncome);
-
+  
     return (
         <>
             <Col md={2} className="leftCon">
@@ -41,7 +43,7 @@ const Main = () => {
                 <h2>Household Income</h2>
                 <Info
                     heading={"TOTAL INCOME"}
-                    content={"R 200.00"}
+                    content={"R " + total + ".00"}
                     extra={<hr></hr>}
                 />
                 <Info
@@ -57,13 +59,13 @@ const Main = () => {
                 <Col md={{ span: 11 }}>
                     <form>
                         <input ref={name} className='input' aria-label='name' name='name' placeholder='Enter name...' type={"text"} id='one' />
-                        <input ref={income} className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"} />
-                        <Col md={2} className="butn"><Button function={clickValue} id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
+                        <input ref={income} className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"}   onKeyPress = {(event) =>{event.key === "Enter" && clickValue()}} />
+                        <Col md={2} className="butn"><Button function={() => clickValue()} id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
                     </form>
                 </Col>
 
                 <h2 className='household'>Household Name</h2>
-                <table>
+                <table className='table'>
                     <thead>
                         <tr>
                             <th><h5>#</h5></th>
@@ -78,7 +80,7 @@ const Main = () => {
                         {householdIncome.map((e, index) => (
                             <Household
                                 key={e.id}
-                                number = {e.index}
+                                number={e.index}
                                 name={e.name}
                                 amount={e.Income} />
                         ))}
