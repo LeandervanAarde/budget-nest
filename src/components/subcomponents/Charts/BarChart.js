@@ -1,9 +1,11 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
+import { CanvasHTMLAttributes } from 'react';
 import 'chart.js/auto';
 const BarChart = () => {
     return (
-     <Bar data={{
+        
+     <Bar  data={{
         labels:["this", "will", "be", "more", "dynamic"],
         datasets:[{
             data: [12, 23, 233, 65, 754 ,676], 
@@ -12,7 +14,6 @@ const BarChart = () => {
                 "#2494FA",
                 "#7F6EE1"
              ], 
-
         }],
      }}
      height={320}
@@ -61,8 +62,6 @@ const BarChart = () => {
              }
          }
      }}
-
-
      />
     );
 };

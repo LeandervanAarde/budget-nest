@@ -5,7 +5,7 @@ const Info = (props) => {
        <Col md={3} className="infoBlock">
            <h4 className='text-center'>{props.heading}</h4>
            <p className='text-center'>{props.content}</p>
-           <p className='text-center'>{props.extra}</p>
+           {props.extra}
        </Col>
     );
 };

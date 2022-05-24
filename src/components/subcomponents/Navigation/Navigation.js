@@ -1,9 +1,14 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
 import { RiHome2Line, RiLogoutBoxLine, RiShoppingBagLine, RiCoinsLine } from "react-icons/ri";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import Button from '../Button/Button';
 const Navigation = () => {
+
+    const location = useLocation();
+    const { pathname } = location;
+    const splitLocation = pathname.split("/");
+    
     return (
         <Col md={2} className="navCon">
             <Col sm={12} className="logoCon"></Col>
@@ -33,7 +38,7 @@ const Navigation = () => {
                 <Button
                     icon={<RiLogoutBoxLine color={'white'} size={25} />}
                     text="Exit"
-                    id = "exbt"
+                    id = "exit"
                 />
             </Col>
             </NavLink>

@@ -3,6 +3,7 @@ import { PolarArea } from 'react-chartjs-2';
 import 'chart.js/auto';
 const PolarAreaChart = () => {
     return (
+       
         <PolarArea data={{
             labels: ["Name1", "Name2", "Name2", "name4", "Name4"],
             datasets: [
@@ -62,6 +63,7 @@ const PolarAreaChart = () => {
                 },
             }}
         />
+     
     );
 };
 export default PolarAreaChart;
