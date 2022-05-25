@@ -15,8 +15,9 @@ const Main = () => {
     const [total, setTotal] = useState(0);
     const name = useRef()
     const income = useRef();
-
-    const clickValue = () => {
+    const [val, setVal] = useState()
+//function to get the value that is being input and then to output it to the dom as all values added togehter
+    const clickValue = async () => {
         //get the value
         let uName = name.current.value;
         let uIncome = income.current.value;
@@ -32,7 +33,7 @@ const Main = () => {
         const result = householdIncome.map((item) => (item.Income)).reduce((accumulator, currVal) => accumulator + currVal, (+ uIncome));
         setTotal(result);
     }
-  
+
     return (
         <>
             <Col md={2} className="leftCon">
@@ -58,9 +59,9 @@ const Main = () => {
                 />
                 <Col md={{ span: 11 }}>
                     <form>
-                        <input ref={name} className='input' aria-label='name' name='name' placeholder='Enter name...' type={"text"} id='one' />
-                        <input ref={income} className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"}   onKeyPress = {(event) =>{event.key === "Enter" && clickValue()}} />
-                        <Col md={2} className="butn"><Button function={() => clickValue()} id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
+                        <input value={val} ref={name} className='input' aria-label='name' name='name' placeholder='Enter name...' type={"text"} id='one' />
+                        <input value={val} ref={income} className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"} onKeyPress={(event) => { event.key === "Enter" && clickValue() }} />
+                        <Col md={2} className="butn" aria-label='button'><Button function={() => clickValue()} id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
                     </form>
                 </Col>
 
@@ -87,15 +88,15 @@ const Main = () => {
                     </tbody>
                 </table>
                 <Col md={3} className="chartCon">
-                    <BarChart />
+                    {/* <BarChart /> */}
                 </Col>
 
                 <Col md={3} className="chartCon">
-                    <DoughnutChart />
+                    {/* <DoughnutChart /> */}
                 </Col>
 
                 <Col md={3} className="chartCon">
-                    <PolarAreaChart />
+                    {/* <PolarAreaChart /> */}
                 </Col>
 
             </Col>
