@@ -2,13 +2,13 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import { CanvasHTMLAttributes } from 'react';
 import 'chart.js/auto';
-const BarChart = () => {
+const BarChart = (props) => {
     return (
         
      <Bar  data={{
-        labels:["this", "will", "be", "more", "dynamic"],
+        labels: props.name,
         datasets:[{
-            data: [12, 23, 233, 65, 754 ,676], 
+            data: props.data, 
             backgroundColor: [
                 " #48D87F",
                 "#2494FA",
@@ -37,8 +37,9 @@ const BarChart = () => {
              },
              legend: {
                  position: "bottom",
+                 display: false,
                  labels: {
-                     display: true,
+                     display: false,
                      padding: 30,
                      boxWidth: 30,
                      boxHeight: 20,

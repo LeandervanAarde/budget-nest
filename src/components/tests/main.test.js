@@ -9,8 +9,14 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import userEvent from "@testing-library/user-event";
 
 describe("Testing components in the main Component...", () => {
-    test("Testing to see if the inputs are empty on render...", () => {
+
+    beforeEach(() =>{
         render(<Router><Main /></Router>);
+    })
+
+
+    test("Testing to see if the inputs are empty on render...", () => {
+    
         let nameInput = screen.getByLabelText(/name/i);
         let incomeInput = screen.getByLabelText(/income/i);
         //3) Assert Empty
@@ -18,25 +24,25 @@ describe("Testing components in the main Component...", () => {
         expect(incomeInput.value).toBe("");
     });
 
-    test("See if inputs are updated when typing", () => {
-        render(<Router><Main /></Router>);
-        let nameInput = screen.getByLabelText(/name/i);
-        let incomeInput = screen.getByPlaceholderText(/Enter amount.../i);
-        userEvent.type(nameInput, "Leander van Aarde");
-        userEvent.type(incomeInput, "1000");
-        console.log(nameInput.value);
-        expect(nameInput.value).toBe("Leander van Aarde")
-        expect(incomeInput.value).toBe("1000");
+    // test("See if inputs are updated when typing...", () => {
+    //     render(<Router><Main /></Router>);
+    //     let nameInput = screen.getByLabelText(/name/i);
+    //     let incomeInput = screen.getByPlaceholderText(/Enter amount.../i);
+    //     userEvent.type(nameInput, "Leander van Aarde");
+    //     userEvent.type(incomeInput, "1000");
+    //     console.log(nameInput.value);
+    //     expect(nameInput.value).toBe("Leander van Aarde")
+    //     expect(incomeInput.value).toBe("1000");
 
-    });
+    // });
 
-    test("See if total Income is calculated", async () => {
+    test("See if total Income is calculated...", async () => {
         //render the component
-        render(<Router><Main /></Router>);
+       
         //variables that we are testing
         let nameInput = screen.getByLabelText(/name/i);
         let incomeInput = screen.getByPlaceholderText(/Enter amount.../i);
-        let output = screen.getByText(/R 0.00/i);
+        let output = screen.getByText(/R 0/i);
         //Userevents that will then trigger the click 
         userEvent.type(nameInput, "Leander van Aarde");
         userEvent.type(incomeInput, "1000");
@@ -44,7 +50,7 @@ describe("Testing components in the main Component...", () => {
         await fireEvent.click(button.firstChild);
         let finalOut = await output.innerHTML;
         console.log(finalOut);
-        expect(finalOut).toBe("R 1000.00");
+        expect(finalOut).toBe("R 1000");
     })
 
 })

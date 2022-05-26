@@ -13,6 +13,8 @@ const Main = () => {
 
     const [householdIncome, setHouseHoldIncome] = useState([]);
     const [total, setTotal] = useState(0);
+    const [incomes, setIncomes] = useState([]);
+    const[names, setNames] =useState([]);
     const name = useRef()
     const income = useRef();
     const [val, setVal] = useState()
@@ -30,9 +32,32 @@ const Main = () => {
         setHouseHoldIncome((prevState) => (
             [...prevState, userIncome]
         ))
-        const result = householdIncome.map((item) => (item.Income)).reduce((accumulator, currVal) => accumulator + currVal, (+ uIncome));
-        setTotal(result);
+        const result = householdIncome.map((item) => (item.Income));
+        const userNames = householdIncome.map((inf) => (inf.name));
+        setTotal(result.reduce((accumulator, currVal) => accumulator + currVal, uIncome));
+        setIncomes(result);
+        setNames(userNames)
     }
+
+
+    const houseHoldTax = () =>{
+        let taxAmount = total * 12;
+        const between = (x,min, max) =>{
+            return x >= min && x <= max;  
+        }
+        if(between(taxAmount, 1, 226000)){
+            let totalTaxAmmount = taxAmount * 0.18;
+        } else if(between(taxAmount, 226000, 353100)){
+            let totalTaxAmmount = taxAmount * 0.18;
+
+        }
+    }
+
+//answer 4 775.08   //answer 4 775.08 57300.96
+
+console.log((353100*0.26) - 40680);
+
+console.log((353100.*0.26) + (353100 - 40680) );
 
     return (
         <>
@@ -44,7 +69,7 @@ const Main = () => {
                 <h2>Household Income</h2>
                 <Info
                     heading={"TOTAL INCOME"}
-                    content={"R " + total + ".00"}
+                    content={"R " + total }
                     extra={<hr></hr>}
                 />
                 <Info
@@ -58,10 +83,10 @@ const Main = () => {
                     extra={<p className='text-center'>R10 500.00</p>}
                 />
                 <Col md={{ span: 11 }}>
-                    <form>
+                    <form onSubmit={houseHoldTax()}>
                         <input value={val} ref={name} className='input' aria-label='name' name='name' placeholder='Enter name...' type={"text"} id='one' />
                         <input value={val} ref={income} className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"} onKeyPress={(event) => { event.key === "Enter" && clickValue() }} />
-                        <Col md={2} className="butn" aria-label='button'><Button function={() => clickValue()} id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
+                        <Col md={2} className="butn" aria-label='button'><Button function={clickValue} id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
                     </form>
                 </Col>
 
@@ -88,7 +113,10 @@ const Main = () => {
                     </tbody>
                 </table>
                 <Col md={3} className="chartCon">
-                    {/* <BarChart /> */}
+                    <BarChart 
+                        data={incomes}
+                        name = {names}
+                    />
                 </Col>
 
                 <Col md={3} className="chartCon">
