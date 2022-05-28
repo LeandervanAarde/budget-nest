@@ -8,7 +8,7 @@ import Household from './subcomponents/householdInfo/Household';
 import DoughnutChart from './subcomponents/Charts/DougnutChart';
 import BarChart from './subcomponents/Charts/BarChart';
 import PolarAreaChart from './subcomponents/Charts/PolarAreaChart';
-import { Lines } from 'react-preloaders';
+
 
 const Main = () => {
 
@@ -16,6 +16,7 @@ const Main = () => {
     const [total, setTotal] = useState(0);
     const [incomes, setIncomes] = useState([]);
     const [names, setNames] = useState([]);
+    const [counter, setCounter] = useState(1);
     const name = useRef()
     const income = useRef();
     const [val, setVal] = useState()
@@ -35,6 +36,8 @@ const Main = () => {
         ))
     }
 
+    //use effet
+
     useEffect(() => {
 
         const result = householdIncome.map((item) => (item.Income));
@@ -43,6 +46,8 @@ const Main = () => {
         setIncomes(result);
         setNames(userNames);
     }, [householdIncome])
+
+
 
     const houseHoldTax = () => {
         let taxAmount = total * 12;
@@ -68,10 +73,11 @@ const Main = () => {
             <Col md={10} className="contentCon">
                 <br></br>
                 <h2>Household Income</h2>
+                <br></br>
                 <Info
                     heading={"TOTAL INCOME"}
                     content={"R " + total}
-                    extra={<hr></hr>}
+                    extra={<p className='text-center'><strong>Income before tax</strong></p>}
                 />
                 <Info
                     heading={"TOTAL TAX"}
@@ -107,7 +113,7 @@ const Main = () => {
                         {householdIncome.map((e, index) => (
                             <Household
                                 key={e.id}
-                                number={e.index}
+                                number={counter + index}
                                 name={e.name}
                                 amount={e.Income} />
                         ))}
@@ -120,20 +126,20 @@ const Main = () => {
                                 data={incomes}
                                 name={names}
                             />
-                            : 
+                            :
                             <>
-                            <div id='bar1' className='loaderCon'>
-                                <div id='bar2' className='loaderBar'></div>
-                                <div id='bar3' className='loaderBar'></div>
-                                <div id='bar4' className='loaderBar'></div>
-                                <div id='bar5' className='loaderBar'></div>
-                                <div id='bar6' className='loaderBar'></div>
-                                <div id='bar7' className='loaderBar'></div>
-                                <div id='bar8' className='loaderBar'></div>
-                                <div id='bar9' className='loaderBar'></div>
-                            </div>
-                           
-                            <h4>Getting Data...</h4>
+                                <div id='bar1' className='loaderCon'>
+                                    <div id='bar2' className='loaderBar'></div>
+                                    <div id='bar3' className='loaderBar'></div>
+                                    <div id='bar4' className='loaderBar'></div>
+                                    <div id='bar5' className='loaderBar'></div>
+                                    <div id='bar6' className='loaderBar'></div>
+                                    <div id='bar7' className='loaderBar'></div>
+                                    <div id='bar8' className='loaderBar'></div>
+                                    <div id='bar9' className='loaderBar'></div>
+                                </div>
+
+                                <h4>Getting Data...</h4>
                             </>
                     }
                 </Col>
@@ -142,19 +148,19 @@ const Main = () => {
                     {
                         incomes.length > 0 ?
                             <DoughnutChart />
-                           : <>
-                            <div id='bar1' className='loaderCon'>
-                                <div id='bar2' className='loaderBar'></div>
-                                <div id='bar3' className='loaderBar'></div>
-                                <div id='bar4' className='loaderBar'></div>
-                                <div id='bar5' className='loaderBar'></div>
-                                <div id='bar6' className='loaderBar'></div>
-                                <div id='bar7' className='loaderBar'></div>
-                                <div id='bar8' className='loaderBar'></div>
-                                <div id='bar9' className='loaderBar'></div>
-                            </div>
-                           
-                            <h4>Getting Data...</h4>
+                            : <>
+                                <div id='bar1' className='loaderCon'>
+                                    <div id='bar2' className='loaderBar'></div>
+                                    <div id='bar3' className='loaderBar'></div>
+                                    <div id='bar4' className='loaderBar'></div>
+                                    <div id='bar5' className='loaderBar'></div>
+                                    <div id='bar6' className='loaderBar'></div>
+                                    <div id='bar7' className='loaderBar'></div>
+                                    <div id='bar8' className='loaderBar'></div>
+                                    <div id='bar9' className='loaderBar'></div>
+                                </div>
+
+                                <h4>Getting Data...</h4>
                             </>
                     }
                 </Col>
@@ -163,20 +169,20 @@ const Main = () => {
                     {
                         incomes.length > 0 ?
                             <PolarAreaChart />
-                            : 
+                            :
                             <>
-                            <div id='bar1' className='loaderCon'>
-                                <div id='bar2' className='loaderBar'></div>
-                                <div id='bar3' className='loaderBar'></div>
-                                <div id='bar4' className='loaderBar'></div>
-                                <div id='bar5' className='loaderBar'></div>
-                                <div id='bar6' className='loaderBar'></div>
-                                <div id='bar7' className='loaderBar'></div>
-                                <div id='bar8' className='loaderBar'></div>
-                                <div id='bar9' className='loaderBar'></div>
-                            </div>
-                           
-                            <h4>Getting Data...</h4>
+                                <div id='bar1' className='loaderCon'>
+                                    <div id='bar2' className='loaderBar'></div>
+                                    <div id='bar3' className='loaderBar'></div>
+                                    <div id='bar4' className='loaderBar'></div>
+                                    <div id='bar5' className='loaderBar'></div>
+                                    <div id='bar6' className='loaderBar'></div>
+                                    <div id='bar7' className='loaderBar'></div>
+                                    <div id='bar8' className='loaderBar'></div>
+                                    <div id='bar9' className='loaderBar'></div>
+                                </div>
+
+                                <h4>Getting Data...</h4>
                             </>
                     }
                 </Col>
