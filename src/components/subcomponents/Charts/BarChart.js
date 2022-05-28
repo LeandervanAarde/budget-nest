@@ -4,7 +4,7 @@ import { CanvasHTMLAttributes } from 'react';
 import 'chart.js/auto';
 const BarChart = (props) => {
     return (
-        
+
      <Bar  data={{
         labels: props.name,
         datasets:[{

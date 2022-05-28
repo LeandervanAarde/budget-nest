@@ -1,20 +1,16 @@
 import { render, screen, } from "@testing-library/react";
 import Main, { addIncome, clickValue } from "../Main";
 import { fireEvent } from "@testing-library/react";
-
-
-
-
 import { BrowserRouter as Router } from 'react-router-dom';
 import userEvent from "@testing-library/user-event";
+import BarChart from "../subcomponents/Charts/BarChart"
 
 describe("Testing components in the main Component...", () => {
 
     beforeEach(() =>{
         render(<Router><Main /></Router>);
     })
-
-
+    
     test("Testing to see if the inputs are empty on render...", () => {
     
         let nameInput = screen.getByLabelText(/name/i);
