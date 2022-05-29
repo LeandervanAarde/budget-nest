@@ -8,9 +8,6 @@ import Household from './subcomponents/householdInfo/Household';
 
 const TotalExpense = () => {
 
-    var name = sessionStorage.getItem("Names");
-    console.log(name)
-
     return (
         <>
             <Col md={2} className="leftCon">
@@ -34,6 +31,7 @@ const TotalExpense = () => {
                     <Info
                         heading={"TOTAL EXPENSE AMOUNT"}
                         content={"R600"}
+                        extra={<hr></hr>}
                     />
 
                     <form className='exForm'>

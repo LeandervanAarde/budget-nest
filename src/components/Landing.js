@@ -18,7 +18,7 @@ const Landing = (props) => {
             <Col sm={{span: 8, offset: 2}} md={{span: 4, offset: 4}}>
                 <Button
                     text = "Get Started"
-                    icon = {<RiMoneyDollarCircleFill size={40} color={"White"}/>}
+                    icon = {<RiMoneyDollarCircleFill size={30} color={"White"}/>}
                     function = {props.func}
                 />
             </Col>

@@ -56,14 +56,35 @@ const Main = () => {
         }
         if (between(taxAmount, 1, 226000)) {
             let totalTaxAmmount = taxAmount * 0.18;
+            // console.log(totalTaxAmmount)
         } else if (between(taxAmount, 226000, 353100)) {
-            let output = "40680 + 26%";
-            let totalTaxAmmount = (taxAmount * 0.26) - 40680;
-            let monthlyTax = totalTaxAmmount / 12;
-        }
+            let totalTaxAmmount = ((taxAmount * 0.26 ) -40680);
+            let output = "40680 + 26%"  
+            // console.log(totalTaxAmmount) 
+        } else if (between(taxAmount, 353101, 488700)) {
+            let totalTaxAmmount = ((taxAmount * 0.31 ) -73726);
+            let output = "4067372680 + 31%" 
+            // console.log(totalTaxAmmount)  
+        } else if (between(taxAmount, 488701, 641400)) {
+            let totalTaxAmmount = ((taxAmount * 0.36) -115762);
+            let output = "115762 + 36%"   
+            // console.log(totalTaxAmmount)
+        } else if (between(taxAmount, 641401, 817600)) {
+            let totalTaxAmmount = ((taxAmount * 0.39) -170734);
+            let output = "170734 + 39%"   
+            // console.log(totalTaxAmmount)
+        } else if (between(taxAmount, 817601, 1731600)) {
+            let totalTaxAmmount = ((taxAmount * 0.41) -239452);
+            let output = "239452 + 41%" 
+            // console.log(totalTaxAmmount)  
+        } else if (taxAmount >= 1731601 ) {
+            let totalTaxAmmount = ((taxAmount * 0.45) -614192);
+            let output = "239452 + 41%"   
+            console.log(totalTaxAmmount)
+        } 
     }
 
-
+ 
 
     return (
         <>
@@ -93,7 +114,7 @@ const Main = () => {
                     <form onSubmit={houseHoldTax()}>
                         <input value={val} ref={name} className='input' aria-label='name' name='name' placeholder='Enter name...' type={"text"} id='one' />
                         <input value={val} ref={income} className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"} onKeyPress={(event) => { event.key === "Enter" && clickValue() }} />
-                        <Col md={2} className="butn" aria-label='button'><Button function={clickValue} id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
+                        <Col md={2} className="butn" aria-label='button'><Button function={()=>(clickValue(), houseHoldTax())} id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
                     </form>
                 </Col>
 
@@ -138,8 +159,6 @@ const Main = () => {
                                     <div id='bar8' className='loaderBar'></div>
                                     <div id='bar9' className='loaderBar'></div>
                                 </div>
-
-                                <h4>Getting Data...</h4>
                             </>
                     }
                 </Col>
@@ -159,8 +178,6 @@ const Main = () => {
                                     <div id='bar8' className='loaderBar'></div>
                                     <div id='bar9' className='loaderBar'></div>
                                 </div>
-
-                                <h4>Getting Data...</h4>
                             </>
                     }
                 </Col>
@@ -181,8 +198,6 @@ const Main = () => {
                                     <div id='bar8' className='loaderBar'></div>
                                     <div id='bar9' className='loaderBar'></div>
                                 </div>
-
-                                <h4>Getting Data...</h4>
                             </>
                     }
                 </Col>
