@@ -20,33 +20,19 @@ describe("Testing components in the main Component...", () => {
         expect(incomeInput.value).toBe("");
     });
 
-    // test("See if inputs are updated when typing...", () => {
-    //     render(<Router><Main /></Router>);
-    //     let nameInput = screen.getByLabelText(/name/i);
-    //     let incomeInput = screen.getByPlaceholderText(/Enter amount.../i);
-    //     userEvent.type(nameInput, "Leander van Aarde");
-    //     userEvent.type(incomeInput, "1000");
-    //     console.log(nameInput.value);
-    //     expect(nameInput.value).toBe("Leander van Aarde")
-    //     expect(incomeInput.value).toBe("1000");
-
-    // });
 
     test("See if total Income is calculated...", async () => {
-        //render the component
-       
-        //variables that we are testing
+     //variables that we are testing
         let nameInput = screen.getByLabelText(/name/i);
         let incomeInput = screen.getByPlaceholderText(/Enter amount.../i);
-        let output = screen.getByText(/R 0/i);
+        let output = screen.getAllByText(/R 0/)[0];
         //Userevents that will then trigger the click 
         userEvent.type(nameInput, "Leander van Aarde");
         userEvent.type(incomeInput, "1000");
         const button = screen.getByLabelText('button');
-        await fireEvent.click(button.firstChild);
+         fireEvent.click(button.firstChild);
         let finalOut = await output.innerHTML;
         console.log(finalOut);
-        expect(finalOut).toBe("R 1000");
+        expect(finalOut).toEqual("R 1000");
     })
-
 })

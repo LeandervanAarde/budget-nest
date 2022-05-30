@@ -19,7 +19,11 @@ const Main = () => {
     const [counter, setCounter] = useState(1);
     const name = useRef()
     const income = useRef();
-    const [val, setVal] = useState()
+    const [val, setVal] = useState();
+    const [taxper, setTaxPer] = useState(0);
+    const [taxOutPut, setTaxOutPut] = useState(0); 
+    const [AfterTax, setAfterTax] = useState(0)
+    
     //function to get the value that is being input and then to output it to the dom as all values added togehter
     const clickValue = () => {
         //get the value
@@ -36,6 +40,7 @@ const Main = () => {
         ))
     }
 
+
     //use effet
 
     useEffect(() => {
@@ -45,44 +50,69 @@ const Main = () => {
         setTotal(result.reduce((accumulator, currVal) => accumulator + currVal, 0));
         setIncomes(result);
         setNames(userNames);
-    }, [householdIncome])
 
-
-
-    const houseHoldTax = () => {
-        let taxAmount = total * 12;
-        const between = (x, min, max) => {
+      const between = (x, min, max) => {
             return x >= min && x <= max;
         }
+
+         let taxAmount = total * 12;
+
         if (between(taxAmount, 1, 226000)) {
-            let totalTaxAmmount = taxAmount * 0.18;
+            let totalTaxAmmount = (taxAmount * 0.18);
+            let output = "18%"
+            setTaxPer(output); 
+            setTaxOutPut(totalTaxAmmount);
             // console.log(totalTaxAmmount)
         } else if (between(taxAmount, 226000, 353100)) {
             let totalTaxAmmount = ((taxAmount * 0.26 ) -40680);
             let output = "40680 + 26%"  
+            setTaxPer(output); 
+            setTaxOutPut(totalTaxAmmount);
             // console.log(totalTaxAmmount) 
         } else if (between(taxAmount, 353101, 488700)) {
             let totalTaxAmmount = ((taxAmount * 0.31 ) -73726);
-            let output = "4067372680 + 31%" 
+            let output = "4067372680 + 31%";
+            setTaxPer(output);  
+            setTaxOutPut(totalTaxAmmount);
             // console.log(totalTaxAmmount)  
         } else if (between(taxAmount, 488701, 641400)) {
             let totalTaxAmmount = ((taxAmount * 0.36) -115762);
-            let output = "115762 + 36%"   
+            let output = "115762 + 36%";
+            setTaxPer(output);  
+            setTaxOutPut(totalTaxAmmount);
             // console.log(totalTaxAmmount)
         } else if (between(taxAmount, 641401, 817600)) {
             let totalTaxAmmount = ((taxAmount * 0.39) -170734);
-            let output = "170734 + 39%"   
+            let output = "170734 + 39%";
+            setTaxPer(output); 
+            setTaxOutPut(totalTaxAmmount);   
             // console.log(totalTaxAmmount)
         } else if (between(taxAmount, 817601, 1731600)) {
             let totalTaxAmmount = ((taxAmount * 0.41) -239452);
-            let output = "239452 + 41%" 
+            let output = "239452 + 41%";
+            setTaxPer(output); 
+            setTaxOutPut(totalTaxAmmount); 
             // console.log(totalTaxAmmount)  
         } else if (taxAmount >= 1731601 ) {
-            let totalTaxAmmount = ((taxAmount * 0.45) -614192);
-            let output = "239452 + 41%"   
-            console.log(totalTaxAmmount)
+            let totalTaxAmmount = ((taxAmount * 0.45) -614192).Math.round(2);
+            let output = "614192 + 45%";
+            setTaxPer(output);    
+            console.log(totalTaxAmmount);
+            setTaxOutPut(totalTaxAmmount);
         } 
-    }
+
+    const newIncome = (total*12 - taxOutPut)/12; 
+
+    setAfterTax(newIncome)
+
+    }, [householdIncome])
+
+
+
+
+   
+
+console.log(1000 * 0.18)
 
  
 
@@ -97,24 +127,25 @@ const Main = () => {
                 <br></br>
                 <Info
                     heading={"TOTAL INCOME"}
-                    content={"R " + total}
+                    content={"R " + total }
                     extra={<p className='text-center'><strong>Income before tax</strong></p>}
+                    id = "total"
                 />
                 <Info
                     heading={"TOTAL TAX"}
-                    content={"15%"}
-                    extra={<p className='text-center'>R12 500.00</p>}
+                    content={taxper}
+                    extra={<p className='text-center'>R {Math.round(taxOutPut/12)}</p>}
                 />
                 <Info
                     heading={"INCOME AFTER TAX"}
-                    content={"R12 000.00 - 1500.00"}
-                    extra={<p className='text-center'>R10 500.00</p>}
+                    content={"R "+total + " - " + "R " + Math.round(taxOutPut/12)}
+                    extra={<p className='text-center'>R {Math.round(AfterTax)}</p>}
                 />
                 <Col md={{ span: 11 }}>
-                    <form onSubmit={houseHoldTax()}>
+                    <form>
                         <input value={val} ref={name} className='input' aria-label='name' name='name' placeholder='Enter name...' type={"text"} id='one' />
-                        <input value={val} ref={income} className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"} onKeyPress={(event) => { event.key === "Enter" && clickValue() }} />
-                        <Col md={2} className="butn" aria-label='button'><Button function={()=>(clickValue(), houseHoldTax())} id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
+                        <input value={val} ref={income} className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"} onKeyPress={(event) => { event.key === "Enter" && clickValue()}}/>
+                        <Col md={2} className="butn" aria-label='button'><Button function={()=>clickValue()} id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
                     </form>
                 </Col>
 

@@ -5,8 +5,10 @@ import Info from './subcomponents/moneyInfo/Info';
 import Button from './subcomponents/Button/Button';
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import Household from './subcomponents/householdInfo/Household';
-
+import DoughnutChart from './subcomponents/Charts/DougnutChart';
 const TotalExpense = () => {
+
+    const data = [];
 
     return (
         <>
@@ -43,7 +45,55 @@ const TotalExpense = () => {
                         <Col md={2} className="butn2"><Button id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD EXPENSE" /></Col>
                     </form>
 
+                    <h2>Savings </h2>
+                    <Col md={{ span: 10, offset: 1 }} className="pillContainer">
+                        <Col md={1} value="2.5%" className='pill'><h3>2.5%</h3></Col>
+                        <Col md={1} value="5%" className='pill'><h3>5%</h3></Col>
+                        <Col md={1} value="7%" className='pill'><h3>7%</h3></Col>
+                        <Col md={1} value="10%" className='pill'><h3>10%</h3></Col>
+                        <Col md={1} value="15%" className='pill'><h3>15%</h3></Col>
+                        <Col md={1} value="20%" className='pill'><h3>20%</h3></Col>
+                        <input className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"} />
+                    </Col>
 
+                </Col>
+
+                <Col md={5} className="chartCon">
+                    {
+                        data.length > 0 ?
+                            <DoughnutChart />
+                            : <>
+                                <div id='bar1' className='loaderCon'>
+                                    <div id='bar2' className='load'></div>
+                                    <div id='bar3' className='loaderBar'></div>
+                                    <div id='bar4' className='loaderBar'></div>
+                                    <div id='bar5' className='loaderBar'></div>
+                                    <div id='bar6' className='loaderBar'></div>
+                                    <div id='bar7' className='loaderBar'></div>
+                                    <div id='bar8' className='loaderBar'></div>
+                                    <div id='bar9' className='loaderBar'></div>
+                                </div>
+                            </>
+                    }
+                </Col>
+
+                <Col md={5} className="chartCon">
+                    {
+                        data.length > 0 ?
+                            <DoughnutChart />
+                            : <>
+                                <div id='bar1' className='loaderCon'>
+                                    <div id='bar2' className='loaderBar'></div>
+                                    <div id='bar3' className='loaderBar'></div>
+                                    <div id='bar4' className='loaderBar'></div>
+                                    <div id='bar5' className='loaderBar'></div>
+                                    <div id='bar6' className='loaderBar'></div>
+                                    <div id='bar7' className='loaderBar'></div>
+                                    <div id='bar8' className='loaderBar'></div>
+                                    <div id='bar9' className='loaderBar'></div>
+                                </div>
+                            </>
+                    }
                 </Col>
 
             </Col>
@@ -55,29 +105,3 @@ export default TotalExpense;
 
 
 
-{/* <h2 className='household'>Household Name</h2>
-   
-                    <form>
-                        <select placeholder='Select Member' className='drop me-4'>
-                            <option defaultValue={true} disabled={true}>Select member</option>
-                        </select>
-                        <input className='expenses' type={"text"} id='one' />
-                        <input className='expenses' type={"number"} />
-                        <Col md={2} className="butn2"><Button id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
-                    </form>
-                    
-                    <Info
-                    heading={"INCOME"}
-                    content={"R 200.00"}
-                    extra={<hr></hr>}
-                />
-                <Info
-                    heading={"TOTAL EXPENSES"}
-                    content={"6"}
-                    extra={<hr></hr>}
-                />
-                <Info
-                    heading={"TOTAL EXPENSE AMOUNT"}
-                    content={"R600"}
-                    extra={<hr></hr>}
-                /> */}
