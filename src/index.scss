@@ -1,9 +1,12 @@
-@import "/src/components/Landing.scss";
-@import "/src/components/totalExpenses.scss";
+// Stylesheets get imported here because all main components will link to this file, the subcomponents to have dedicated scss files. 
+@import "/src/Scss/Landing.scss";
+@import "../src/Scss/variables.scss";
+@import "/src/Scss/totalExpenses.scss";
 @import "/src/components/subcomponents/Button/Button.scss";
-@import "/src/components/mainPage.scss";
+@import "/src/Scss/mainPage.scss";
 @import "/src/components/subcomponents/Navigation/Navigation.scss";
 @import "/src/components/subcomponents/moneyInfo/info.scss";
+@import "/src/components/subcomponents/Loader/Loader.scss";
 
 .content{
     background-color: $background;
