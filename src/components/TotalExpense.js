@@ -5,7 +5,8 @@ import Info from './subcomponents/moneyInfo/Info';
 import Button from './subcomponents/Button/Button';
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import Household from './subcomponents/householdInfo/Household';
-import DoughnutChart from './subcomponents/Charts/DougnutChart';
+import PolarAreaChart from './subcomponents/Charts/DougnutChart';
+import Loader from './subcomponents/Loader/Loader';
 const TotalExpense = () => {
 
     const data = [];
@@ -59,41 +60,11 @@ const TotalExpense = () => {
                 </Col>
 
                 <Col md={5} className="chartCon">
-                    {
-                        data.length > 0 ?
-                            <DoughnutChart />
-                            : <>
-                                <div id='bar1' className='loaderCon'>
-                                    <div id='bar2' className='load'></div>
-                                    <div id='bar3' className='loaderBar'></div>
-                                    <div id='bar4' className='loaderBar'></div>
-                                    <div id='bar5' className='loaderBar'></div>
-                                    <div id='bar6' className='loaderBar'></div>
-                                    <div id='bar7' className='loaderBar'></div>
-                                    <div id='bar8' className='loaderBar'></div>
-                                    <div id='bar9' className='loaderBar'></div>
-                                </div>
-                            </>
-                    }
+                { data.length > 0 ?<PolarAreaChart />: <Loader /> }
                 </Col>
 
                 <Col md={5} className="chartCon">
-                    {
-                        data.length > 0 ?
-                            <DoughnutChart />
-                            : <>
-                                <div id='bar1' className='loaderCon'>
-                                    <div id='bar2' className='loaderBar'></div>
-                                    <div id='bar3' className='loaderBar'></div>
-                                    <div id='bar4' className='loaderBar'></div>
-                                    <div id='bar5' className='loaderBar'></div>
-                                    <div id='bar6' className='loaderBar'></div>
-                                    <div id='bar7' className='loaderBar'></div>
-                                    <div id='bar8' className='loaderBar'></div>
-                                    <div id='bar9' className='loaderBar'></div>
-                                </div>
-                            </>
-                    }
+                { data.length > 0 ?<PolarAreaChart />: <Loader /> }
                 </Col>
 
             </Col>

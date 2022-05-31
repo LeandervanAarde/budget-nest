@@ -25,14 +25,7 @@ const Navigation = () => {
                     <p className='text'>TOTAL EXPENSES</p>
                 </Col>
             </NavLink>
-
-            <NavLink to="/TotalSavings">
-            <Col sm={12} className="navItem">
-                <RiCoinsLine className="svg" color={'white'} size={25} />
-                <p className='text'>TOTAL SAVINGS</p>
-            </Col>
-            </NavLink>
-
+            
             <NavLink to="/">
             <Col md={{ span: 8, offset: 2 }} className="btnCon" id="but">
                 <Button
