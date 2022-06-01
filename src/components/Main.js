@@ -8,7 +8,7 @@ import Household from './subcomponents/householdInfo/Household';
 import DoughnutChart from './subcomponents/Charts/DougnutChart';
 import BarChart from './subcomponents/Charts/BarChart';
 import PolarAreaChart from './subcomponents/Charts/PolarAreaChart';
-import { between, getBracket, getTotal } from './Functions/Testfunction';
+import { between, getBracket, getTotal, getNewTotal, calcMonths} from './Functions/Testfunction';
 import Loader from './subcomponents/Loader/Loader';
 
 const Main = () => {
@@ -59,7 +59,7 @@ const Main = () => {
         let totalD = getTotal(result);
 
         // This is gettng that total and making it accessible inside of the useEffect
-        let taxAmount = totalD * 12;
+        let taxAmount = calcMonths(totalD,12);
 
         //Getting the total
         let bracket = getBracket(taxAmount);
@@ -74,7 +74,7 @@ const Main = () => {
         const finalTaxAmount = bracket.totalTaxAmmount / 12;
 
         //To showcase the total amount after the tax amount has been deducted (On a monthly scale)
-        const newIncome = (totalD - finalTaxAmount);
+        const newIncome = getNewTotal(totalD ,finalTaxAmount);
 
         setAfterTax(newIncome);
     }, [householdIncome])

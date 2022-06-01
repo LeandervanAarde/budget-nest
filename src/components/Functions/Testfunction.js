@@ -10,7 +10,6 @@ export const getTotal = (list) => {
 
 //function to get the tax bracket
 export const getBracket = (amt) => {
-    console.log(amt);
     if (amt === 0) {
         return {
             totalTaxAmmount: 0, output: 0,
@@ -33,9 +32,16 @@ export const getBracket = (amt) => {
     let output = brackArr[counter].amnt + "+" + brackArr[counter].pcr * 100 + "%";
     if (counter === 0) {
         output = brackArr[counter].pcr * 100 + "%";
-        console.log(totalTaxAmmount)
     }
     return {
         totalTaxAmmount: totalTaxAmmount, output: output,
     }
+}
+
+export const getNewTotal = (a,b) =>{
+    return a-b; 
+}
+
+export const calcMonths = (total, months) =>{
+    return total *months; 
 }

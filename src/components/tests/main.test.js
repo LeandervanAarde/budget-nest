@@ -1,10 +1,12 @@
-import { render, screen, } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Main, { addIncome, clickValue } from "../Main";
 import { fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from 'react-router-dom';
 import userEvent from "@testing-library/user-event";
-import { getBracket, getTotal } from "../Functions/Testfunction";
+import { getBracket, getTotal, getNewTotal } from "../Functions/Testfunction";
 import BarChart from "../subcomponents/Charts/BarChart"
+
+
 
 describe("Testing components in the main Component...", () => {
 
@@ -24,6 +26,9 @@ describe("Testing components in the main Component...", () => {
         expect(incomeInput.value).toBe("");
     });
 
+
+
+
     test("See if total Income is calculated...", async () => {
         //variables that we are testing
         let nameInput = screen.getByLabelText(/name/i);
@@ -35,7 +40,6 @@ describe("Testing components in the main Component...", () => {
         const button = screen.getByLabelText('button');
         fireEvent.click(button.firstChild);
         let finalOut = await output.innerHTML;
-        console.log(finalOut);
         expect(finalOut).toEqual("R 1000");
     });
 
@@ -57,4 +61,15 @@ describe("Testing components in the main Component...", () => {
         let secondFunc = getBracket(newIncome);
         expect(secondFunc.totalTaxAmmount).toEqual((newIncome * 0.31) + 73726);
     });
+
+    test("See if new value is calculated after the tax amount has been calculated", () =>{
+        let income =  5000; 
+        let func1 = getBracket(income);
+        expect(func1.totalTaxAmmount).toEqual(income * 0.18);
+        const func1Out = func1.totalTaxAmmount;
+        console.log(func1Out);
+        let func2 = getNewTotal(income, func1Out);
+        console.log(func2)
+        expect(func2).toEqual(income - func1Out)
+    })
 })
