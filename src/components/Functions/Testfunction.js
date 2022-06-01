@@ -38,10 +38,12 @@ export const getBracket = (amt) => {
     }
 }
 
+//Function to calculate the new total after the tax amount has been calculated
 export const getNewTotal = (a,b) =>{
     return a-b; 
 }
 
+//calculate the totall amount on a certain month scale, developers can change the code to be 11 months for example. 
 export const calcMonths = (total, months) =>{
     return total *months; 
 }
