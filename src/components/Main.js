@@ -29,16 +29,26 @@ const Main = () => {
         //get the value
         let uName = name.current.value;
         let uIncome = income.current.value;
+        let Yearly = (calcMonths(uIncome,12)); 
+        let personalTaxBrack = getBracket(Yearly); 
+        let inAfterTx = Yearly - personalTaxBrack.totalTaxAmmount
+        console.log(inAfterTx);
         // object that 
         let userIncome = {
             id: Math.random() * 10,
             name: uName,
-            Income: (+ uIncome)
+            Income: (+ uIncome),
+            YearlyIncome: Yearly,
+            Bracket: personalTaxBrack.output,
+            taxAmount: personalTaxBrack.totalTaxAmmount,
+            afterTx: inAfterTx
         }
         setHouseHoldIncome((prevState) => (
             [...prevState, userIncome]
         ))
     }
+
+    // console.log(householdIncome)
 
     useEffect(() => {
 
@@ -58,7 +68,7 @@ const Main = () => {
         // Total amount of tax that needs to be paid if the household incomes are combined
         let totalD = getTotal(result);
 
-        // This is gettng that total and making it accessible inside of the useEffect
+        // This is gettng that total and making it accessible inside of the useEffect, this will times the income by the months and then your bracket will be calculated from there
         let taxAmount = calcMonths(totalD,12);
 
         //Getting the total
@@ -135,7 +145,11 @@ const Main = () => {
                                 key={e.id}
                                 number={counter + index}
                                 name={e.name}
-                                amount={e.Income} />
+                                amount={e.YearlyIncome}
+                               taxBrack = {e.Bracket}
+                               taxAmount = {e.taxAmount}
+                               afterTax = {e.afterTx}
+                                />
                         ))}
                     </tbody>
                 </table>

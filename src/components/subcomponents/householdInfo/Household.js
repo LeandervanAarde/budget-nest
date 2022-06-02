@@ -6,9 +6,9 @@ const Household = (props) => {
             <td> {props.number}</td>
             <td>{props.name}</td>
             <td> R {props.amount}</td>
-            {/* <td>{props.taxBrack}</td>
-                <td>{props.taxAmount}</td>
-                <td>{props.afterTax}</td> */}
+            <td>{props.taxBrack}</td>
+            <td>{props.taxAmount}</td>
+             <td>{props.afterTax}</td>
         </tr>
     );
 };
