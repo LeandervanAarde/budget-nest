@@ -22,7 +22,10 @@ const Main = () => {
     const income = useRef();
     const [taxper, setTaxPer] = useState(0);
     const [taxOutPut, setTaxOutPut] = useState(0);
-    const [AfterTax, setAfterTax] = useState(0)
+    const [AfterTax, setAfterTax] = useState(0); 
+    const [yIncome, setYIncome] = useState([0]);
+    //State to get all values from the household after tax
+    const [allAfter, setAllAfterTax] = useState([0]);
 
     //function to get the value that is being input and then to output it to the dom as all values added togehter
     const clickValue = () => {
@@ -55,6 +58,8 @@ const Main = () => {
         //result from clickValue function
         const result = householdIncome.map((item) => (item.Income));
         const userNames = householdIncome.map((inf) => (inf.name));
+        const yearIncome = householdIncome.map(yearIn => (yearIn.YearlyIncome));
+        const afterAllTax = householdIncome.map((atx) =>(atx.afterTx));
 
         // adding all the incomes from the result variable in order to get a total household income
         setTotal(getTotal(result));
@@ -87,7 +92,14 @@ const Main = () => {
         const newIncome = getNewTotal(totalD ,finalTaxAmount);
 
         setAfterTax(newIncome);
+
+        setAllAfterTax(afterAllTax);
+
+        setYIncome(yearIncome);
+
     }, [householdIncome])
+
+  
 
     return (
         <>
@@ -159,11 +171,11 @@ const Main = () => {
                 </Col>
 
                 <Col md={3} className="chartCon">
-                    {incomes.length > 0 ? <DoughnutChart /> : <Loader />}
+                    {incomes.length > 0 ? <DoughnutChart data={yIncome} name={names} /> : <Loader />}
                 </Col>
 
                 <Col md={3} className="chartCon">
-                    { incomes.length > 0 ?<PolarAreaChart />: <Loader /> }
+                    { incomes.length > 0 ?<PolarAreaChart name={names} data={allAfter} />: <Loader /> }
                 </Col>
             </Col>
         </>

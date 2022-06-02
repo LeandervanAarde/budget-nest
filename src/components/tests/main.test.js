@@ -4,7 +4,7 @@ import { fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from 'react-router-dom';
 import userEvent from "@testing-library/user-event";
 import { getBracket, getTotal, getNewTotal } from "../Functions/Testfunction";
-import BarChart from "../subcomponents/Charts/BarChart"
+import BarChart from "../subcomponents/Charts/BarChart";
 
 
 

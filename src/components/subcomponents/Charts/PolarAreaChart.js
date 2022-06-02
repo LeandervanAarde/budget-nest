@@ -1,14 +1,14 @@
 import React from 'react';
 import { PolarArea } from 'react-chartjs-2';
 import 'chart.js/auto';
-const PolarAreaChart = () => {
+const PolarAreaChart = (props) => {
     return (
        
         <PolarArea data={{
-            labels: ["Name1", "Name2", "Name2", "name4", "Name4"],
+            labels: props.name,
             datasets: [
                 {
-                    data: [1, 3, 4, 10, 15, 19,],
+                    data: props.data,
 
                     backgroundColor: ["#48D87F", "#2494FA", "#7F6EE1"],
                     borderColor: "transparent",
@@ -45,11 +45,11 @@ const PolarAreaChart = () => {
                     },
                     title: {
                         display: true,
-                        text: "Tax amount",
+                        text: "Yearly income after tax",
                         position: "top",
                         color: "white",
                         font: {
-                            size: 24,
+                            size: 17,
                             weight: "bold",
                         }
                     },
@@ -57,7 +57,7 @@ const PolarAreaChart = () => {
                 legend: {
                     font: {
                         display: true,
-                        size: 18,
+                        size: "12px",
                         weight: "bold",
                     },
                 },

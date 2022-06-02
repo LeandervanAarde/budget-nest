@@ -1,13 +1,13 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import 'chart.js/auto';
-const DoughnutChart = () => {
+const DoughnutChart = (props) => {
     return (
         <Doughnut data={{
-            dataset:["PersonOne, Persontwo, PersonThree, PersonFour, PersonFive"],
+            dataset: props.name,
             datasets: [{
                 label: "ek wil slaap",
-                data: [42,500,1200,9, 750, 1200],
+                data: props.data,
                 backgroundColor: [
                     "#48D87F",
                     "#2494FA",
@@ -24,13 +24,16 @@ const DoughnutChart = () => {
                 decimation: {
                     enabled: true,
                 },
+                labels:{
+                    display: true,
+                },
                 title: {
                     display: true,
-                    text: "HouseholdIncome",
+                    text: "Total Yearly income",
                     position: "bottom",
                     color: "white",
                     font: {
-                        size: 24,
+                        size: 18,
                         weight: "bold",
    
                     }
