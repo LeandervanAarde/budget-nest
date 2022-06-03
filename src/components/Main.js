@@ -49,6 +49,8 @@ const Main = () => {
         setHouseHoldIncome((prevState) => (
             [...prevState, userIncome]
         ))
+
+   
     }
 
     // console.log(householdIncome)
@@ -60,6 +62,8 @@ const Main = () => {
         const userNames = householdIncome.map((inf) => (inf.name));
         const yearIncome = householdIncome.map(yearIn => (yearIn.YearlyIncome));
         const afterAllTax = householdIncome.map((atx) =>(atx.afterTx));
+
+        sessionStorage.setItem("Name", userNames,);
 
         // adding all the incomes from the result variable in order to get a total household income
         setTotal(getTotal(result));
@@ -134,7 +138,7 @@ const Main = () => {
                 <Col md={{ span: 11 }}>
                     <form>
                         <input ref={name} className='input' aria-label='name' name='name' placeholder='Enter name...' type={"text"} id='one' />
-                        <input ref={income} className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"} onKeyPress={(event) => { event.key === "Enter" && clickValue() }} />
+                        <input ref={income} className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"}  onKeyPress={(event) => { event.key === "Enter" &&  clickValue() }}  />
                         <Col md={2} className="butn" aria-label='button'><Button function={() => (clickValue())} id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
                     </form>
                 </Col>

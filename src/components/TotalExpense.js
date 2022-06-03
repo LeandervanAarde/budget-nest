@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Col } from 'react-bootstrap';
 import Navigation from './subcomponents/Navigation/Navigation';
 import Info from './subcomponents/moneyInfo/Info';
@@ -8,8 +8,13 @@ import Household from './subcomponents/householdInfo/Household';
 import PolarAreaChart from './subcomponents/Charts/DougnutChart';
 import Loader from './subcomponents/Loader/Loader';
 const TotalExpense = () => {
-
+    const[allMembers, setAllMembers] = useState();
     const data = [];
+    const names = sessionStorage.getItem("Name");
+    const nameArr = names.split(',');
+    console.log(nameArr);
+
+
 
     return (
         <>
@@ -40,6 +45,7 @@ const TotalExpense = () => {
                     <form className='exForm'>
                         <select placeholder='Select Member' className='drop me-4'>
                             <option defaultValue={true} disabled={true}>Select member</option>
+                            {nameArr.map((item) => <option value={item}>{item}</option>)}
                         </select>
                         <input className='expenses' type={"text"} id='one' />
                         <input className='expenses' type={"number"} />
