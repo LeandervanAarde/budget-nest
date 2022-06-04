@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Col } from 'react-bootstrap';
 import Navigation from './subcomponents/Navigation/Navigation';
 import Info from './subcomponents/moneyInfo/Info';
@@ -7,14 +7,21 @@ import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import Household from './subcomponents/householdInfo/Household';
 import PolarAreaChart from './subcomponents/Charts/DougnutChart';
 import Loader from './subcomponents/Loader/Loader';
+import { combine} from './Functions/Testfunction';
+
 const TotalExpense = () => {
-    const[allMembers, setAllMembers] = useState();
+    const[allMembers, setAllMembers] = useState([]);
     const data = [];
     const names = sessionStorage.getItem("Name");
+    const incomes = sessionStorage.getItem("IncomeAfterTax");
     const nameArr = names.split(',');
-    console.log(nameArr);
+    const incomeArr = incomes.split(',');
 
+    const peopleArr = {person: nameArr, income: incomeArr};
 
+    console.log(peopleArr)
+
+   
 
     return (
         <>
@@ -45,7 +52,7 @@ const TotalExpense = () => {
                     <form className='exForm'>
                         <select placeholder='Select Member' className='drop me-4'>
                             <option defaultValue={true} disabled={true}>Select member</option>
-                            {nameArr.map((item) => <option value={item}>{item}</option>)}
+                            {/* {nameArr.map((item) => <option value={item}>{item}</option>)} */}
                         </select>
                         <input className='expenses' type={"text"} id='one' />
                         <input className='expenses' type={"number"} />
@@ -66,11 +73,11 @@ const TotalExpense = () => {
                 </Col>
 
                 <Col md={5} className="chartCon">
-                { data.length > 0 ?<PolarAreaChart />: <Loader /> }
+                { incomes.length > 0 ?<PolarAreaChart />: <Loader /> }
                 </Col>
 
                 <Col md={5} className="chartCon">
-                { data.length > 0 ?<PolarAreaChart />: <Loader /> }
+                { incomes.length > 0 ?<PolarAreaChart />: <Loader /> }
                 </Col>
 
             </Col>

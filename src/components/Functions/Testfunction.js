@@ -47,3 +47,8 @@ export const getNewTotal = (a,b) =>{
 export const calcMonths = (total, months) =>{
     return total *months; 
 }
+
+export const combine = (person, inc) =>{
+    let tempArr = [{name: person, Income: inc}];
+    return tempArr
+}

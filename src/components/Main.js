@@ -8,7 +8,7 @@ import Household from './subcomponents/householdInfo/Household';
 import DoughnutChart from './subcomponents/Charts/DougnutChart';
 import BarChart from './subcomponents/Charts/BarChart';
 import PolarAreaChart from './subcomponents/Charts/PolarAreaChart';
-import { between, getBracket, getTotal, getNewTotal, calcMonths} from './Functions/Testfunction';
+import { between, getBracket, getTotal, getNewTotal, calcMonths } from './Functions/Testfunction';
 import Loader from './subcomponents/Loader/Loader';
 
 const Main = () => {
@@ -22,7 +22,7 @@ const Main = () => {
     const income = useRef();
     const [taxper, setTaxPer] = useState(0);
     const [taxOutPut, setTaxOutPut] = useState(0);
-    const [AfterTax, setAfterTax] = useState(0); 
+    const [AfterTax, setAfterTax] = useState(0);
     const [yIncome, setYIncome] = useState([0]);
     //State to get all values from the household after tax
     const [allAfter, setAllAfterTax] = useState([0]);
@@ -32,10 +32,9 @@ const Main = () => {
         //get the value
         let uName = name.current.value;
         let uIncome = income.current.value;
-        let Yearly = (calcMonths(uIncome,12)); 
-        let personalTaxBrack = getBracket(Yearly); 
+        let Yearly = (calcMonths(uIncome, 12));
+        let personalTaxBrack = getBracket(Yearly);
         let inAfterTx = Yearly - personalTaxBrack.totalTaxAmmount
-        console.log(inAfterTx);
         // object that 
         let userIncome = {
             id: Math.random() * 10,
@@ -50,7 +49,7 @@ const Main = () => {
             [...prevState, userIncome]
         ))
 
-   
+
     }
 
     // console.log(householdIncome)
@@ -61,9 +60,10 @@ const Main = () => {
         const result = householdIncome.map((item) => (item.Income));
         const userNames = householdIncome.map((inf) => (inf.name));
         const yearIncome = householdIncome.map(yearIn => (yearIn.YearlyIncome));
-        const afterAllTax = householdIncome.map((atx) =>(atx.afterTx));
+        const afterAllTax = householdIncome.map((atx) => (atx.afterTx));
 
-        sessionStorage.setItem("Name", userNames,);
+        sessionStorage.setItem("Name", userNames);
+        sessionStorage.setItem("IncomeAfterTax", (afterAllTax / 12));
 
         // adding all the incomes from the result variable in order to get a total household income
         setTotal(getTotal(result));
@@ -78,7 +78,7 @@ const Main = () => {
         let totalD = getTotal(result);
 
         // This is gettng that total and making it accessible inside of the useEffect, this will times the income by the months and then your bracket will be calculated from there
-        let taxAmount = calcMonths(totalD,12);
+        let taxAmount = calcMonths(totalD, 12);
 
         //Getting the total
         let bracket = getBracket(taxAmount);
@@ -93,7 +93,7 @@ const Main = () => {
         const finalTaxAmount = bracket.totalTaxAmmount / 12;
 
         //To showcase the total amount after the tax amount has been deducted (On a monthly scale)
-        const newIncome = getNewTotal(totalD ,finalTaxAmount);
+        const newIncome = getNewTotal(totalD, finalTaxAmount);
 
         setAfterTax(newIncome);
 
@@ -103,11 +103,11 @@ const Main = () => {
 
     }, [householdIncome])
 
-  
+
 
     return (
         <>
-        {/* Navigation in here */}
+            {/* Navigation in here */}
             <Col md={2} className="leftCon">
                 <Navigation />
             </Col>
@@ -138,7 +138,7 @@ const Main = () => {
                 <Col md={{ span: 11 }}>
                     <form>
                         <input ref={name} className='input' aria-label='name' name='name' placeholder='Enter name...' type={"text"} id='one' />
-                        <input ref={income} className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"}  onKeyPress={(event) => { event.key === "Enter" &&  clickValue() }}  />
+                        <input ref={income} className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"} onKeyPress={(event) => { event.key === "Enter" && clickValue() }} />
                         <Col md={2} className="butn" aria-label='button'><Button function={() => (clickValue())} id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
                     </form>
                 </Col>
@@ -162,16 +162,16 @@ const Main = () => {
                                 number={counter + index}
                                 name={e.name}
                                 amount={e.YearlyIncome}
-                               taxBrack = {e.Bracket}
-                               taxAmount = {e.taxAmount}
-                               afterTax = {e.afterTx}
-                                />
+                                taxBrack={e.Bracket}
+                                taxAmount={e.taxAmount}
+                                afterTax={e.afterTx}
+                            />
                         ))}
                     </tbody>
                 </table>
 
                 <Col md={3} className="chartCon">
-                    { incomes.length > 0 ? <BarChart data={incomes} name={names}/> : <Loader /> }
+                    {incomes.length > 0 ? <BarChart data={incomes} name={names} /> : <Loader />}
                 </Col>
 
                 <Col md={3} className="chartCon">
@@ -179,7 +179,59 @@ const Main = () => {
                 </Col>
 
                 <Col md={3} className="chartCon">
-                    { incomes.length > 0 ?<PolarAreaChart name={names} data={allAfter} />: <Loader /> }
+                    {incomes.length > 0 ? <PolarAreaChart name={names} data={allAfter} /> : <Loader />}
+                </Col>
+
+
+
+                <Col md={{ span: 12 }}>
+                    <h2 className='household'>Savings and expenses</h2>
+
+                    <Info
+                        heading={"INCOME"}
+                        content={"R 200.00"}
+                        extra={<hr></hr>}
+                    />
+                    <Info
+                        heading={"TOTAL EXPENSES"}
+                        content={"6"}
+                        extra={<hr></hr>}
+                    />
+                    <Info
+                        heading={"TOTAL EXPENSE AMOUNT"}
+                        content={"R600"}
+                        extra={<hr></hr>}
+                    />
+
+                    <form className='exForm'>
+                        <select placeholder='Select Member' className='drop me-4'>
+                            <option defaultValue={true} disabled={true}>Select member</option>
+                            {householdIncome.map((item) => <option value={item.name}>{item.name}</option>)}
+                        </select>
+                        <input className='expenses' type={"text"} id='one' />
+                        <input className='expenses' type={"number"} />
+                        <Col md={2} className="butn2"><Button id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD EXPENSE" /></Col>
+                    </form>
+
+                    <h2>Savings </h2>
+                    <Col md={{ span: 10, offset: 1 }} className="pillContainer">
+                        <Col md={1} value="2.5%" className='pill'><h3>2.5%</h3></Col>
+                        <Col md={1} value="5%" className='pill'><h3>5%</h3></Col>
+                        <Col md={1} value="7%" className='pill'><h3>7%</h3></Col>
+                        <Col md={1} value="10%" className='pill'><h3>10%</h3></Col>
+                        <Col md={1} value="15%" className='pill'><h3>15%</h3></Col>
+                        <Col md={1} value="20%" className='pill'><h3>20%</h3></Col>
+                        <input className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"} />
+                    </Col>
+
+                </Col>
+
+                <Col md={{ span: 4, offset: 1 }} className="chartCon">
+                    {incomes.length > 0 ? <PolarAreaChart /> : <Loader />}
+                </Col>
+
+                <Col md={{ span: 4 }} className="chartCon">
+                    {incomes.length > 0 ? <PolarAreaChart /> : <Loader />}
                 </Col>
             </Col>
         </>
