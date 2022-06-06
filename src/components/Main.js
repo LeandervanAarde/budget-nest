@@ -10,6 +10,7 @@ import BarChart from './subcomponents/Charts/BarChart';
 import PolarAreaChart from './subcomponents/Charts/PolarAreaChart';
 import { between, getBracket, getTotal, getNewTotal, calcMonths } from './Functions/Testfunction';
 import Loader from './subcomponents/Loader/Loader';
+import TotalExpense from './TotalExpense';
 
 const Main = () => {
 
@@ -63,7 +64,7 @@ const Main = () => {
         const afterAllTax = householdIncome.map((atx) => (atx.afterTx));
 
         sessionStorage.setItem("Name", userNames);
-        sessionStorage.setItem("IncomeAfterTax", (afterAllTax / 12));
+        sessionStorage.setItem("IncomeAfterTax", (afterAllTax));
 
         // adding all the incomes from the result variable in order to get a total household income
         setTotal(getTotal(result));
@@ -103,7 +104,12 @@ const Main = () => {
 
     }, [householdIncome])
 
+    const expense = useRef()
 
+    const setExpenses = () =>{
+        let expenseName = expense.current.value; 
+        console.log(income)
+    }
 
     return (
         <>
@@ -181,58 +187,9 @@ const Main = () => {
                 <Col md={3} className="chartCon">
                     {incomes.length > 0 ? <PolarAreaChart name={names} data={allAfter} /> : <Loader />}
                 </Col>
-
-
-
-                <Col md={{ span: 12 }}>
-                    <h2 className='household'>Savings and expenses</h2>
-
-                    <Info
-                        heading={"INCOME"}
-                        content={"R 200.00"}
-                        extra={<hr></hr>}
+                    <TotalExpense
+                        names = {householdIncome.map((item) => <option value={item.name}>{item.name}</option>)}
                     />
-                    <Info
-                        heading={"TOTAL EXPENSES"}
-                        content={"6"}
-                        extra={<hr></hr>}
-                    />
-                    <Info
-                        heading={"TOTAL EXPENSE AMOUNT"}
-                        content={"R600"}
-                        extra={<hr></hr>}
-                    />
-
-                    <form className='exForm'>
-                        <select placeholder='Select Member' className='drop me-4'>
-                            <option defaultValue={true} disabled={true}>Select member</option>
-                            {householdIncome.map((item) => <option value={item.name}>{item.name}</option>)}
-                        </select>
-                        <input className='expenses' type={"text"} id='one' />
-                        <input className='expenses' type={"number"} />
-                        <Col md={2} className="butn2"><Button id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD EXPENSE" /></Col>
-                    </form>
-
-                    <h2>Savings </h2>
-                    <Col md={{ span: 10, offset: 1 }} className="pillContainer">
-                        <Col md={1} value="2.5%" className='pill'><h3>2.5%</h3></Col>
-                        <Col md={1} value="5%" className='pill'><h3>5%</h3></Col>
-                        <Col md={1} value="7%" className='pill'><h3>7%</h3></Col>
-                        <Col md={1} value="10%" className='pill'><h3>10%</h3></Col>
-                        <Col md={1} value="15%" className='pill'><h3>15%</h3></Col>
-                        <Col md={1} value="20%" className='pill'><h3>20%</h3></Col>
-                        <input className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"} />
-                    </Col>
-
-                </Col>
-
-                <Col md={{ span: 4, offset: 1 }} className="chartCon">
-                    {incomes.length > 0 ? <PolarAreaChart /> : <Loader />}
-                </Col>
-
-                <Col md={{ span: 4 }} className="chartCon">
-                    {incomes.length > 0 ? <PolarAreaChart /> : <Loader />}
-                </Col>
             </Col>
         </>
     );

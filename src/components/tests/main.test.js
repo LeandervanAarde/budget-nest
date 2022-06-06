@@ -1,10 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import Main, { addIncome, clickValue } from "../Main";
+import Main from "../Main";
 import { fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from 'react-router-dom';
 import userEvent from "@testing-library/user-event";
 import { getBracket, getTotal, getNewTotal } from "../Functions/Testfunction";
 import BarChart from "../subcomponents/Charts/BarChart";
+import convertToPercent from "../Functions/Testfunction";
 
 
 
@@ -71,5 +72,7 @@ describe("Testing components in the main Component...", () => {
         let func2 = getNewTotal(income, func1Out);
         console.log(func2)
         expect(func2).toEqual(income - func1Out)
-    })
+    });
+
+   
 })

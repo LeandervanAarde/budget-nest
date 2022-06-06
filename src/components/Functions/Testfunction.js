@@ -49,6 +49,7 @@ export const calcMonths = (total, months) =>{
 }
 
 export const combine = (person, inc) =>{
+
     let tempArr = [{name: person, Income: inc}];
     return tempArr
 }
