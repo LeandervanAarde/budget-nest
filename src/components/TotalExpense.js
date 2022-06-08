@@ -14,10 +14,10 @@ const TotalExpense = (props) => {
     const [allMembers, setAllMembers] = useState([]);
     const data = [];
     const names = sessionStorage.getItem("Name");
-    const incomes = sessionStorage.getItem("IncomeAfterTax");
+    const incomes = [sessionStorage.getItem("IncomeAfterTax")];
     const nameArr = names;
     const incomeArr = incomes
-    const saveArr = [0.025, 0.05, 0.07, 0.1, 0.15, 0.2];
+   
     const peopleArr = { person: nameArr, income: incomeArr };
     const expenseName = useRef();
     const expenseAmount = useRef();
@@ -30,18 +30,13 @@ const TotalExpense = (props) => {
       
     }
 
-
-
-    console.log(Expenses);
-
-
     return (
         <>
             <Col md={{ span: 12 }}>
                 <h2 className='household'>Savings and expenses</h2>
 
                 <Info
-                    heading={"INCOME"}
+                    heading={props.person +"INCOME"}
                     content={"R 200.00"}
                     extra={<hr></hr>}
                 />
@@ -68,19 +63,19 @@ const TotalExpense = (props) => {
 
                 <h2>Savings </h2>
                 <Col md={{ span: 10, offset: 1 }} className="pillContainer">
-                    {saveArr.map((e) => (<PillContainer val={Math.round((e*100)) + "%"}/>))}
-                    <input className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"} />
+                        {props.children}
+                    <input className='input' aria-label='personIncome' name='EnterIncome' placeholder='Enter own amount...' type={"number"} />
                 </Col>
 
             </Col>
 
-            {/* <Col md={{ span: 5 }} className="chartCon">
-                {incomes.length > 0 ? <PolarAreaChart /> : <Loader />}
+            <Col md={{ span: 5 }} className="chartCon">
+                {!incomes.length > 0 ? <PolarAreaChart /> : <Loader />}
             </Col>
 
             <Col md={{ span: 5 }} className="chartCon">
-                {incomes.length > 0 ? <PolarAreaChart /> : <Loader />}
-            </Col> */}
+                {!incomes.length > 0 ? <PolarAreaChart /> : <Loader />}
+            </Col>
         </>
     );
 };

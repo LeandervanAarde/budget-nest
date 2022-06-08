@@ -53,3 +53,7 @@ export const combine = (person, inc) =>{
     let tempArr = [{name: person, Income: inc}];
     return tempArr
 }
+
+export const getSavePct = (value, pct) =>{
+    return value*pct; 
+}

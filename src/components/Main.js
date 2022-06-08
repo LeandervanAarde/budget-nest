@@ -8,9 +8,10 @@ import Household from './subcomponents/householdInfo/Household';
 import DoughnutChart from './subcomponents/Charts/DougnutChart';
 import BarChart from './subcomponents/Charts/BarChart';
 import PolarAreaChart from './subcomponents/Charts/PolarAreaChart';
-import { between, getBracket, getTotal, getNewTotal, calcMonths } from './Functions/Testfunction';
+import { between, getBracket, getTotal, getNewTotal, calcMonths, getSavePct } from './Functions/Testfunction';
 import Loader from './subcomponents/Loader/Loader';
 import TotalExpense from './TotalExpense';
+import PillContainer from './subcomponents/Button/PillContainer';
 
 const Main = () => {
 
@@ -27,6 +28,8 @@ const Main = () => {
     const [yIncome, setYIncome] = useState([0]);
     //State to get all values from the household after tax
     const [allAfter, setAllAfterTax] = useState([0]);
+    const cName = useRef();
+    const saveArr = [0.03, 0.05, 0.07, 0.1, 0.15, 0.2];
 
     //function to get the value that is being input and then to output it to the dom as all values added togehter
     const clickValue = () => {
@@ -49,11 +52,7 @@ const Main = () => {
         setHouseHoldIncome((prevState) => (
             [...prevState, userIncome]
         ))
-
-
     }
-
-    // console.log(householdIncome)
 
     useEffect(() => {
 
@@ -62,6 +61,7 @@ const Main = () => {
         const userNames = householdIncome.map((inf) => (inf.name));
         const yearIncome = householdIncome.map(yearIn => (yearIn.YearlyIncome));
         const afterAllTax = householdIncome.map((atx) => (atx.afterTx));
+
 
         sessionStorage.setItem("Name", userNames);
         sessionStorage.setItem("IncomeAfterTax", (afterAllTax));
@@ -102,13 +102,21 @@ const Main = () => {
 
         setYIncome(yearIncome);
 
+   
+
     }, [householdIncome])
 
     const expense = useRef()
 
     const setExpenses = () =>{
         let expenseName = expense.current.value; 
-        console.log(income)
+        console.log(income);
+    }
+
+    const getSavings = (e) =>{
+        let val = e.target.parentElement.getAttribute('value');
+        console.log(val);
+ 
     }
 
     return (
@@ -187,9 +195,15 @@ const Main = () => {
                 <Col md={3} className="chartCon">
                     {incomes.length > 0 ? <PolarAreaChart name={names} data={allAfter} /> : <Loader />}
                 </Col>
-                    <TotalExpense
-                        names = {householdIncome.map((item) => <option value={item.name}>{item.name}</option>)}
-                    />
+
+                {!cName ? ( <TotalExpense 
+                        names = {householdIncome.map((item) => <option   value={item.name}>{item.name}</option>)}
+                        person = {cName.current.value}
+                        children = {saveArr.map((e) => (<PillContainer pct={e} val={Math.round((e*100)) + "%"} func={getSavings} />))}
+                    />) :  <TotalExpense 
+                    names = {householdIncome.map((item) => <option  value={item.name} >{item.name}</option>)}
+                    children = {saveArr.map((e) => (<PillContainer pct={e} val={Math.round((e*100)) + "%"}  func={getSavings}/>))}
+                /> }
             </Col>
         </>
     );
