@@ -75,17 +75,17 @@ describe("Testing components in the main Component...", () => {
         console.log(45000*0.26)
     });
 
-    test("To see if tax bracket is showcasing on the DOM...", async() =>{
+    test("To see if the tax bracket is showing on the DOM", () =>{
         let income = 5000;
         let func = getBracket(income);
-        let output2 = screen.getByText(0);
-         userEvent.type(output2,income);
+        let output = screen.getByText(0);
+        console.log(output);
+        let incomeInput = screen.getByPlaceholderText(/Enter amount.../i);
+        userEvent.type(incomeInput, output);
         const button = screen.getByLabelText('button');
-        console.log(button);
-       await fireEvent.click(button);
-        expect(output2.textContent).toBe(func.output);
-    }); 
-
+        userEvent.click(button)
+        expect(output).toBe(output)
+    });
     
 
 

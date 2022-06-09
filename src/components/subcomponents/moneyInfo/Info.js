@@ -4,7 +4,7 @@ const Info = (props) => {
     return (
        <Col md={3} className="infoBlock" id={props.id}>
            <h4 className='text-center'>{props.heading}</h4>
-           <p className='text-center'>{props.content}</p>
+           <p className='text-center' id={props.id}>{props.content}</p>
            {props.extra}
        </Col>
     );

@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render correctly.. 1`] = `null`;
+exports[`matches snap 1`] = `null`;
+
+exports[`matches snap 2`] = `null`;

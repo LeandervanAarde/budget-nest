@@ -8,7 +8,7 @@ import Household from './subcomponents/householdInfo/Household';
 import DoughnutChart from './subcomponents/Charts/DougnutChart';
 import BarChart from './subcomponents/Charts/BarChart';
 import PolarAreaChart from './subcomponents/Charts/PolarAreaChart';
-import { between, getBracket, getTotal, getNewTotal, calcMonths, getSavePct } from './Functions/Testfunction';
+import { getBracket, getTotal, getNewTotal, calcMonths, getSavePct, checkPerson, getMemberDetails } from './Functions/Testfunction';
 import Loader from './subcomponents/Loader/Loader';
 import TotalExpense from './TotalExpense';
 import PillContainer from './subcomponents/Button/PillContainer';
@@ -30,28 +30,35 @@ const Main = () => {
     const [allAfter, setAllAfterTax] = useState([0]);
     const cName = useRef();
     const saveArr = [0.03, 0.05, 0.07, 0.1, 0.15, 0.2];
+    const [individual, setIndividual] = useState();
 
     //function to get the value that is being input and then to output it to the dom as all values added togehter
     const clickValue = () => {
         //get the value
+       
         let uName = name.current.value;
-        let uIncome = income.current.value;
-        let Yearly = (calcMonths(uIncome, 12));
-        let personalTaxBrack = getBracket(Yearly);
-        let inAfterTx = Yearly - personalTaxBrack.totalTaxAmmount
-        // object that 
-        let userIncome = {
-            id: Math.random() * 10,
-            name: uName,
-            Income: (+ uIncome),
-            YearlyIncome: Yearly,
-            Bracket: personalTaxBrack.output,
-            taxAmount: personalTaxBrack.totalTaxAmmount,
-            afterTx: inAfterTx
+        if(checkPerson(householdIncome, uName)){
+            let uIncome = income.current.value;
+            let Yearly = (calcMonths(uIncome, 12));
+            let personalTaxBrack = getBracket(Yearly);
+            let inAfterTx = Yearly - personalTaxBrack.totalTaxAmmount;
+          
+            // object that 
+            let userIncome = {
+                id: Math.random() * 10,
+                name: uName,
+                Income: (+ uIncome),
+                YearlyIncome: Yearly,
+                Bracket: personalTaxBrack.output,
+                taxAmount: personalTaxBrack.totalTaxAmmount,
+                afterTx: inAfterTx
+            }
+            setHouseHoldIncome((prevState) => (
+                [...prevState, userIncome]
+            ))
+        } else{
+            alert("person already in table");
         }
-        setHouseHoldIncome((prevState) => (
-            [...prevState, userIncome]
-        ))
     }
 
     useEffect(() => {
@@ -61,8 +68,6 @@ const Main = () => {
         const userNames = householdIncome.map((inf) => (inf.name));
         const yearIncome = householdIncome.map(yearIn => (yearIn.YearlyIncome));
         const afterAllTax = householdIncome.map((atx) => (atx.afterTx));
-
-
         sessionStorage.setItem("Name", userNames);
         sessionStorage.setItem("IncomeAfterTax", (afterAllTax));
 
@@ -101,24 +106,27 @@ const Main = () => {
         setAllAfterTax(afterAllTax);
 
         setYIncome(yearIncome);
-
-   
-
     }, [householdIncome])
+  
 
     const expense = useRef()
-
     const setExpenses = () =>{
         let expenseName = expense.current.value; 
-        console.log(income);
+        // console.log(income);
     }
 
     const getSavings = (e) =>{
         let val = e.target.parentElement.getAttribute('value');
-        console.log(val);
- 
+        // console.log(val);
     }
 
+    const selectMember = (e) =>{
+      let val = e.target.value;
+      let memberDetails = getMemberDetails(householdIncome, val);
+      setIndividual(memberDetails);
+    }
+
+    // console.log(individual);
     return (
         <>
             {/* Navigation in here */}
@@ -137,10 +145,11 @@ const Main = () => {
                     id="total"
                 />
 
-                <Info
+                <Info 
                     heading={"MONTHLY TAX"}
                     content={taxper}
                     extra={<p className='text-center'>R {Math.round(taxOutPut / 12)}</p>}
+                    id={"Thingy"}
                 />
 
                 <Info
@@ -196,13 +205,18 @@ const Main = () => {
                     {incomes.length > 0 ? <PolarAreaChart name={names} data={allAfter} /> : <Loader />}
                 </Col>
 
-                {!cName ? ( <TotalExpense 
-                        names = {householdIncome.map((item) => <option   value={item.name}>{item.name}</option>)}
-                        person = {cName.current.value}
+                {!cName ?( <TotalExpense 
+                
+                        content = {individual}
+                        onC={selectMember }
+                        names = {householdIncome.map((item) => <option  value={item.name}>{item.name}</option>)}
+                        person = {individual.name}
+                        amount = {individual.afterTx}
                         children = {saveArr.map((e) => (<PillContainer pct={e} val={Math.round((e*100)) + "%"} func={getSavings} />))}
                     />) :  <TotalExpense 
+                    onC={selectMember}
                     names = {householdIncome.map((item) => <option  value={item.name} >{item.name}</option>)}
-                    children = {saveArr.map((e) => (<PillContainer pct={e} val={Math.round((e*100)) + "%"}  func={getSavings}/>))}
+                    children = {saveArr.map((e) => (<PillContainer pct={e} val={Math.round((e*100)) + "%"} func={getSavings}/>))}
                 /> }
             </Col>
         </>

@@ -1,3 +1,5 @@
+
+
 //Function to calculate a users total savings
 export const savings = (input, save) => {
     return input * save;
@@ -57,3 +59,22 @@ export const combine = (person, inc) =>{
 export const getSavePct = (value, pct) =>{
     return value*pct; 
 }
+
+export const checkPerson = (household, name) =>{
+    let exists = false;
+
+    for(let i = 0; i < household.length;i++){
+        if(household[i].name === name){
+            exists = true;
+            break;
+        }
+    }
+    return !exists;
+}
+
+export const getMemberDetails = (household, name) =>{
+    return household.find(m =>{
+        return m.name == name
+    });
+}
+
