@@ -5,7 +5,6 @@ import { Routes, Route } from 'react-router-dom';
 import './index.scss';
 import Landing from "./components/Landing";
 import Main from "./components/Main";
-import TotalExpense from "./components/TotalExpense";
 import PolarAreChart from "./components/subcomponents/Charts/PolarAreaChart";
 
 function App() {
@@ -27,7 +26,6 @@ function App() {
             <Routes>
               <Route path="/" element={<Landing />}></Route>
               <Route path="/Home" element={<Main />}></Route>
-              <Route path="/TotalExpenses" element={<TotalExpense />}></Route>
               <Route path="/PolarArea" element={<PolarAreChart/>}></Route>
             </Routes>
           )}

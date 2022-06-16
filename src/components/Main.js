@@ -10,8 +10,10 @@ import BarChart from './subcomponents/Charts/BarChart';
 import PolarAreaChart from './subcomponents/Charts/PolarAreaChart';
 import { getBracket, getTotal, getNewTotal, calcMonths, getSavePct, checkPerson, getMemberDetails } from './Functions/Testfunction';
 import Loader from './subcomponents/Loader/Loader';
-import TotalExpense from './TotalExpense';
+import TotalExpense from './subcomponents/TotalExpense';
 import PillContainer from './subcomponents/Button/PillContainer';
+import { getValue } from '@testing-library/user-event/dist/utils';
+import { IndividualTd } from './subcomponents/householdInfo/IndividualTd';
 
 const Main = () => {
 
@@ -29,20 +31,26 @@ const Main = () => {
     //State to get all values from the household after tax
     const [allAfter, setAllAfterTax] = useState([0]);
     const cName = useRef();
-    const saveArr = [0.03, 0.05, 0.07, 0.1, 0.15, 0.2];
-    const [individual, setIndividual] = useState();
+    const saveArr = [0.03, 0.05, 0.07, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4];
+    const [individual, setIndividual] = useState([]);
+    const [output, setOutput] = useState();
+    const [savings, setSavings] = useState(0);
+    const expName = useRef();
+    const expAmnt = useRef();
+    const [allExpenses, setAllExpenses] = useState([]);
+    const [expenseName, setExpenseName] = useState();
+    const [expenseAm, setExpenseAm] = useState();
 
-    //function to get the value that is being input and then to output it to the dom as all values added togehter
     const clickValue = () => {
         //get the value
-       
+
         let uName = name.current.value;
-        if(checkPerson(householdIncome, uName)){
+        if (checkPerson(householdIncome, uName)) {
             let uIncome = income.current.value;
             let Yearly = (calcMonths(uIncome, 12));
             let personalTaxBrack = getBracket(Yearly);
             let inAfterTx = Yearly - personalTaxBrack.totalTaxAmmount;
-          
+
             // object that 
             let userIncome = {
                 id: Math.random() * 10,
@@ -56,7 +64,7 @@ const Main = () => {
             setHouseHoldIncome((prevState) => (
                 [...prevState, userIncome]
             ))
-        } else{
+        } else {
             alert("person already in table");
         }
     }
@@ -68,6 +76,7 @@ const Main = () => {
         const userNames = householdIncome.map((inf) => (inf.name));
         const yearIncome = householdIncome.map(yearIn => (yearIn.YearlyIncome));
         const afterAllTax = householdIncome.map((atx) => (atx.afterTx));
+
         sessionStorage.setItem("Name", userNames);
         sessionStorage.setItem("IncomeAfterTax", (afterAllTax));
 
@@ -107,26 +116,49 @@ const Main = () => {
 
         setYIncome(yearIncome);
     }, [householdIncome])
-  
 
-    const expense = useRef()
-    const setExpenses = () =>{
-        let expenseName = expense.current.value; 
-        // console.log(income);
+    const selectMember = (e) => {
+        let val = e.target.value;
+        let memberDetails = getMemberDetails(householdIncome, val);
+        setIndividual(memberDetails);
     }
 
-    const getSavings = (e) =>{
+    const result = individual
+
+    const getSavings = (e) => {
         let val = e.target.parentElement.getAttribute('value');
-        // console.log(val);
+        let saveamount = getSavePct(result.afterTx, val);
+
+        setSavings({
+            Percent: val * 100,
+            Amount: saveamount
+        });
     }
 
-    const selectMember = (e) =>{
-      let val = e.target.value;
-      let memberDetails = getMemberDetails(householdIncome, val);
-      setIndividual(memberDetails);
+    const getExpenses = () => {
+        const person = individual.name;
+        let expense = expName.current.value;
+        let expenseAmount = expAmnt.current.value;
+        let obj = {
+            personName: person,
+            name: expense,
+            amount: expenseAmount
+        }
+        setAllExpenses((prevState) => (
+            [...prevState, obj]
+        ))
     }
 
-    // console.log(individual);
+
+    useEffect(() => {
+        const expenseNam = allExpenses.map((e) => (e.name));
+        const expenseAmount = allExpenses.map((e) => (e.amount));
+        setExpenseName(expenseNam)
+        setExpenseAm(expenseAmount);
+        const gettotalEx = getTotal(expenseAmount);
+
+    }, [])
+
     return (
         <>
             {/* Navigation in here */}
@@ -143,13 +175,15 @@ const Main = () => {
                     content={"R " + total}
                     extra={<p className='text-center'><strong>Income before tax</strong></p>}
                     id="total"
+                    id2="totalincome"
                 />
 
-                <Info 
+                <Info
                     heading={"MONTHLY TAX"}
                     content={taxper}
-                    extra={<p className='text-center'>R {Math.round(taxOutPut / 12)}</p>}
+                    extra={<p id="taxPct" className='text-center'>R {Math.round(taxOutPut / 12)}</p>}
                     id={"Thingy"}
+                    id2="MonthlyTax"
                 />
 
                 <Info
@@ -158,11 +192,12 @@ const Main = () => {
                     extra={<p className='text-center'>R {Math.round(AfterTax)}</p>}
                 />
 
+
                 <Col md={{ span: 11 }}>
                     <form>
-                        <input ref={name} className='input' aria-label='name' name='name' placeholder='Enter name...' type={"text"} id='one' />
+                        <input ref={name} className='input' aria-label='name'  placeholder='Enter name...' type={"text"} id='one' />
                         <input ref={income} className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"} onKeyPress={(event) => { event.key === "Enter" && clickValue() }} />
-                        <Col md={2} className="butn" aria-label='button'><Button function={() => (clickValue())} id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
+                        <Col md={2} className="butn" id="addbtn" aria-label='button'><Button function={() => (clickValue())} id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
                     </form>
                 </Col>
 
@@ -185,9 +220,7 @@ const Main = () => {
                                 number={counter + index}
                                 name={e.name}
                                 amount={e.YearlyIncome}
-                                taxBrack={e.Bracket}
-                                taxAmount={e.taxAmount}
-                                afterTax={e.afterTx}
+                                taxBrack={e.Bracket} taxAmount={e.taxAmount} afterTax={e.afterTx}
                             />
                         ))}
                     </tbody>
@@ -205,25 +238,45 @@ const Main = () => {
                     {incomes.length > 0 ? <PolarAreaChart name={names} data={allAfter} /> : <Loader />}
                 </Col>
 
-                {!cName ?( <TotalExpense 
-                
-                        content = {individual}
-                        onC={selectMember }
-                        names = {householdIncome.map((item) => <option  value={item.name}>{item.name}</option>)}
-                        person = {individual.name}
-                        amount = {individual.afterTx}
-                        children = {saveArr.map((e) => (<PillContainer pct={e} val={Math.round((e*100)) + "%"} func={getSavings} />))}
-                    />) :  <TotalExpense 
-                    onC={selectMember}
-                    names = {householdIncome.map((item) => <option  value={item.name} >{item.name}</option>)}
-                    children = {saveArr.map((e) => (<PillContainer pct={e} val={Math.round((e*100)) + "%"} func={getSavings}/>))}
-                /> }
+
+                {!cName ? (
+                    <></>
+                ) :
+                    <TotalExpense
+                        number={counter}
+                        expenseName={expName}
+                        expenseAmount={expAmnt}
+                        // tableInfo = {allExpenses.map((e)=>(<IndividualTd 
+                        //     number={counter} 
+                        //     user = {result.name}
+                        //     amount = {Math.round(result.afterTx/12)}
+                        //     expense= {e.name}
+                        //     expNm ={e.amount} 
+                        //     save={savings.Percent + "%"}
+                        //     saveA={Math.round(savings.Amount)}
+                        // />
+                        // ))}
+                        onC={selectMember}
+                        Btn={<Button id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD EXPENSE" function={getExpenses} />}
+                        names={householdIncome.map((item) => <option value={item.name} >{item.name}</option>)}
+                        children={saveArr.map((e) => (<PillContainer pct={e} val={Math.round((e * 100)) + "%"} func={getSavings}
+
+                        />))}
+                    />}
+
+                <Col md={5} className='totalIndividual'>
+                    <h2 className='finalOut'>Hello</h2>
+                    <h5 className='finalOut'>Income P/M: R {Math.round(result.afterTx / 12)}</h5>
+                    <h5 className='finalOut'>Person income</h5>
+                    <h5 className='finalOut'>Savings: {savings.Percent + "%"}</h5>
+                    <h5 className='finalOut'>Savings Amount: {Math.round(savings.Amount)}</h5>
+                    <h5 className='finalOut'>Expenses</h5>
+                    <hr className='divider'></hr>
+                    <h1 className='finalOut'>Total Income</h1>
+                </Col>
             </Col>
         </>
     );
 };
 
 export default Main;
-
-
-

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing the pill container create a snapshot for the component 1`] = `
+<div
+  aria-label="Pill"
+  class="pill col-md-1"
+  value="0.03"
+>
+  <h3>
+    3%
+  </h3>
+</div>
+`;

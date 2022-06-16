@@ -1,5 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches snap 1`] = `null`;
-
-exports[`matches snap 2`] = `null`;
+exports[`renders learn react link 1`] = `null`;

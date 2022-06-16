@@ -1,10 +1,5 @@
 
 
-//Function to calculate a users total savings
-export const savings = (input, save) => {
-    return input * save;
-};
-
 //get total income among all the values 
 export const getTotal = (list) => {
     return list.reduce((accumulator, currVal) => (accumulator + currVal), 0);
@@ -50,12 +45,6 @@ export const calcMonths = (total, months) =>{
     return total *months; 
 }
 
-export const combine = (person, inc) =>{
-
-    let tempArr = [{name: person, Income: inc}];
-    return tempArr
-}
-
 export const getSavePct = (value, pct) =>{
     return value*pct; 
 }
@@ -77,4 +66,3 @@ export const getMemberDetails = (household, name) =>{
         return m.name == name
     });
 }
-
