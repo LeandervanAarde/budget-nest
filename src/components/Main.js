@@ -172,7 +172,7 @@ const Main = () => {
             {/* All content will go in here */}
             <Col md={10} className="contentCon">
                 <br></br>
-                <h2>Household Income</h2>
+                <h2 id='section1'>Household Income</h2>
                 <br></br>
                 <Info
                     heading={"MONTHLY INCOME"}
@@ -275,7 +275,7 @@ const Main = () => {
                                         : Math.round(result.afterTx / 12) - expenseAm - Math.round(savings.Amount)]}
                             />
                             :
-                            <Col md={5} className='totalIndividual'>
+                            <Col md={5} className='totalIndividual' id='section2'>
                                 <img className='containerLogo' src={logo} />
                             </Col>
                         }

@@ -1,70 +1,241 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<!-- Repository Information & Links-->
+<br />
 
-In the project directory, you can run:
+![GitHub repo size](https://img.shields.io/github/repo-size/LeandervanAarde/budget-nest)
+![GitHub watchers](https://img.shields.io/github/watchers/LeandervanAarde/budget-nest)
+![GitHub language count](https://img.shields.io/github/languages/count/LeandervanAarde/budget-nest)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/LeandervanAarde/budget-nest)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<!-- HEADER SECTION -->
+<h5 align="center" style="padding:0;margin:0;">Leander van Aarde</h5>
+<h5 align="center" style="padding:0;margin:0;">200211</h5>
+<h6 align="center">DV202 Unit testing- Term 2 | 2022</h6>
+</br>
+<p align="center">
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  <a href="https://github.com/LeandervanAarde/budget-nest">
+    <img src="https://drive.google.com/uc?export=view&id=1QaFkX87WJyIMu8TMQ9AFD1b8DUQZQ_6O" alt="Logo" width="140" height="140">
+  </a>
+  
+  <h3 align="center">Budget Nest</h3>
 
-### `npm test`
+  <p align="center">
+    This is a project that has been built with React in order to learn the fundamentals of Jest & RTL (React Testing Library), the aim of the project is to help users understand their income and to budget! 
+    <br/>
+    <i>This project is not live, the main aim was to implement tests!</i> 
+    
+   <br />
+   <br />
+   <a href="path/to/demonstration/video">View Demo</a>
+    ·
+    <a href="https://github.com/LeandervanAarde/budget-nest/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/LeandervanAarde/budget-nest/issues">Request Feature</a>
+    ·
+    <a href="https://github.com/LeandervanAarde/budget-nest/issues">Suggest Tests</a>
+</p>
+<!-- TABLE OF CONTENTS -->
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Table of Contents
 
-### `npm run build`
+* :point_right: [About the Project](#about-the-project)
+* :point_right: [Project Description](#project-description)
+* :point_right: [Built With](#built-with)
+* :point_right: [Getting Started](#getting-started)
+* :point_right: [Prerequisites](#prerequisites)
+* :point_right: [How to install](#how-to-install)
+* :point_right: [Features and Functionality](#features-and-functionality)
+* :point_right: [Development Process](#development-process)
+* :point_right: [Implementation Process](#implementation-process)
+* :point_right: [Tests](#implementation-process)
+* :point_right: [Highlights](#highlights)
+* :point_right: [Challenges](#challenges)
+* :point_right: [Future Implementation](#peer-reviews)
+* :point_right: [Final Outcome](#final-outcome)
+* :point_right: [Mockups](#mockups)
+* :point_right: [Video Demonstration](#video-demonstration)
+* :point_right: [Conclusion](#conclusion)
+* :point_right: [License](#license)
+* :point_right: [Contact](#contact)
+* :point_right: [Acknowledgements](#acknowledgements)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!--PROJECT DESCRIPTION-->
+## About the Project
+<!-- header image of project -->
+![image1][image1]
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Project Description
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+A nice introduction to this amazing project of mine.
 
-### `npm run eject`
+### Built With
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* [React](https://reactjs.org/)
+* [Technology Name](path/to/technology/website)
+* [Technology Name](path/to/technology/website)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<!-- GETTING STARTED -->
+<!-- Make sure to add appropriate information about what prerequesite technologies the user would need and also the steps to install your project on their own mashines -->
+## Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The following instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Prerequisites
 
-## Learn More
+Ensure that you have the latest version of [NPM](https://www.npmjs.com/) installed on your machine. The [GitHub Desktop](https://desktop.github.com/) program will also be required.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### How to install
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Installation
+Here are a couple of ways to clone this repo:
 
-### Code Splitting
+1. GitHub Desktop </br>
+Enter `https://github.com/MikeMaynard14/termoneexample.git` into the URL field and press the `Clone` button.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Clone Repository </br>
+Run the following in the command-line to clone the project:
+   ```sh
+   git clone https://github.com/MikeMaynard14/termoneexample.git
+   ```
+    Open `Software` and select `File | Open...` from the menu. Select cloned directory and press `Open` button
 
-### Analyzing the Bundle Size
+3. Install Dependencies </br>
+Run the following in the command-line to install all the required dependencies:
+   ```sh
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. An API key is not required
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<!-- FEATURES AND FUNCTIONALITY-->
+<!-- You can add the links to all of your imagery at the bottom of the file as references -->
+## Features and Functionality
 
-### Advanced Configuration
+<!-- note how you can use your gitHub link. Just make a path to your assets folder -->
+![image2](https://raw.githubusercontent.com/MikeMaynard14/termoneexample/main/src/assets/mockup.jpg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### All The Latest Space X Data! 
 
-### Deployment
+Usding the Space X API, we have collected and collated all the most relevant Space X data into once seemless react experience!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![image3][image3]
+### Feature 2
 
-### `npm run build` fails to minify
+Description of Feature
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![image4][image4]
+### Feature 3
+
+Description of Feature
+
+![image5][image5]
+
+
+<!-- CONCEPT PROCESS -->
+<!-- Briefly explain your concept ideation process -->
+<!-- here you will add things like wireframing, data structure planning, anything that shows your process. You need to include images-->
+## Concept Process
+
+The `Conceptual Process` is the set of actions, activities and research that was done when starting this project.
+
+### Ideation
+
+![image5][image5]
+<br>
+![image6][image6]
+
+### Wireframes
+
+![image7][image7]
+
+### Custom UI
+
+![image8][image8]
+
+<!-- DEVELOPMENT PROCESS -->
+## Development Process
+
+The `Development Process` is the technical implementations and functionality done in the frontend and backend of the application.
+
+### Implementation Process
+<!-- stipulate all of the functionality you included in the project -->
+<!-- This is your time to shine, explain the technical nuances of your project, how did you achieve the final outcome!-->
+
+* Utilized React `Charts.JS` dependency for Data visualization
+* Implemented Routing with `React-Router v6`.
+* API End Point: link Here 
+* `Plugin` for this.
+* ETC.
+
+#### Highlights
+<!-- stipulated the highlight you experienced with the project -->
+* What was good about this project, what did you learn.
+* What aspects did you enjoy.
+
+#### Challenges
+<!-- stipulated the challenges you faced with the project and why you think you faced it or how you think you'll solve it (if not solved) -->
+* Bugs.
+* Bugs.
+
+
+#### Above And Beyond
+
+What aspects of this final build contribute to the `Above And Beyond` Component of your brief?
+<!-- what did you learn outside of the classroom and implement into your project-->
+* Name of Skill Explored.
+* Explain your understanding and execution of above skill.
+
+### Future Implementation
+<!-- stipulate functionality and improvements that can be implemented in the future. -->
+
+* Future 1.
+* Future 2.
+
+<!-- MOCKUPS -->
+## Final Outcome
+
+### Mockups
+
+![image9][image9]
+<br>
+![image10][image10]
+
+<!-- VIDEO DEMONSTRATION -->
+### Video Demonstration
+
+To see a run through of the application, click below:
+
+[View Demonstration](path/to/video/demonstration)
+
+
+See the [open issues](https://github.com/MikeMaynard14/termoneexample/issues) for a list of proposed features (and known issues).
+
+<!-- AUTHORS -->
+## Authors
+
+* **Your Name & Surname** - [MikeMaynard14](https://github.com/MikeMaynard14)
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.\
+
+<!-- LICENSE -->
+## Contact
+
+* **Your Name & Surname** - [email@address](mailto:email@address) - [@instagram_handle](https://www.instagram.com/instagram_handle/) 
+* **Project Link** - https://github.com/MikeMaynard14/termoneexample
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+<!-- all resources that you used and Acknowledgements here -->
+* [Resource Name](path/to/resource)
+* [Resource Name](path/to/resource)
+* [Resource Name](path/to/resource)
+* [Resource Name](path/to/resource)
+* [Resource Name](path/to/resource)
+

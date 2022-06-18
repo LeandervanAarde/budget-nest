@@ -15,7 +15,7 @@ describe("Testing the individuals component to see if it renders the final outco
         const savings =[{
             percentage: 0.03,
             outputVal: "3%"
-        }]
+        }];
         const expenseAmount = 1000;
         const savingsAmount = getSavePct(monthlyIncome * savings[0].percentage);
 

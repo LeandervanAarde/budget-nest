@@ -61,7 +61,7 @@ describe("Testing components in the main Component...", () => {
             let incomeInput = screen.getByPlaceholderText(/Enter amount.../i);
             userEvent.type(nameInput, newName);
             userEvent.type(incomeInput, "5000");
-            const button = document.getElementById("addbtn").firstChild;
+        
             expect(latest).toBeTruthy();
         });
 
