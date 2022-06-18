@@ -17,7 +17,7 @@
 <p align="center">
 
   <a href="https://github.com/LeandervanAarde/budget-nest">
-    <img src="https://drive.google.com/uc?export=view&id=1z774ujlhRg6xsgnICGL_N6jVTPHwFj8E" alt="Logo" width="140" height="140">
+    <img src="https://drive.google.com/uc?export=view&id=1z774ujlhRg6xsgnICGL_N6jVTPHwFj8E" alt="Logo" width="140" height="160">
   </a>
   
   <h3 align="center">Budget Nest</h3>
