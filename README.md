@@ -20,7 +20,7 @@
     <img src="https://drive.google.com/uc?export=view&id=1z774ujlhRg6xsgnICGL_N6jVTPHwFj8E" alt="Logo" width="140" height="160">
   </a>
   
-  <h3 align="center">Budget Nest</h3>
+  <h2 align="center">Budget Nest</h2>
 
   <p align="center">
     This is a project that has been built with React in order to learn the fundamentals of Jest & RTL (React Testing Library), the aim of the project is to help users understand their income and to budget! 
@@ -65,7 +65,7 @@
 <!--PROJECT DESCRIPTION-->
 ## About the Project
 <!-- header image of project -->
-![image1][image1]
+![image1](https://drive.google.com/uc?export=view&id=1UH4OhB_J3WRT3ebfDSvTe1lIpC7kVpMN)
 
 ### Project Description
 
@@ -83,7 +83,7 @@ A nice introduction to this amazing project of mine.
 <!-- Make sure to add appropriate information about what prerequesite technologies the user would need and also the steps to install your project on their own mashines -->
 ## Getting Started
 
-The following instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+The following instructions will assist you downloading the project on your local machine. 
 
 ### Prerequisites
 
@@ -95,12 +95,12 @@ Ensure that you have the latest version of [NPM](https://www.npmjs.com/) install
 Here are a couple of ways to clone this repo:
 
 1. GitHub Desktop </br>
-Enter `https://github.com/MikeMaynard14/termoneexample.git` into the URL field and press the `Clone` button.
+Enter `https://github.com/LeandervanAarde/budget-nest.git` into the URL field and press the `Clone` button.
 
 2. Clone Repository </br>
 Run the following in the command-line to clone the project:
    ```sh
-   git clone https://github.com/MikeMaynard14/termoneexample.git
+   git clone https://github.com/LeandervanAarde/budget-nest.git
    ```
     Open `Software` and select `File | Open...` from the menu. Select cloned directory and press `Open` button
 
@@ -112,7 +112,6 @@ Run the following in the command-line to install all the required dependencies:
 
 4. An API key is not required
 
-
 <!-- FEATURES AND FUNCTIONALITY-->
 <!-- You can add the links to all of your imagery at the bottom of the file as references -->
 ## Features and Functionality
@@ -120,9 +119,9 @@ Run the following in the command-line to install all the required dependencies:
 <!-- note how you can use your gitHub link. Just make a path to your assets folder -->
 ![image2](https://raw.githubusercontent.com/MikeMaynard14/termoneexample/main/src/assets/mockup.jpg)
 
-### All The Latest Space X Data! 
+### A budgeting website getting you on the right track!  
 
-Usding the Space X API, we have collected and collated all the most relevant Space X data into once seemless react experience!
+Using Jest and RTL , this project was able to be tested and prepared for the best outcome! 
 
 ![image3][image3]
 ### Feature 2
@@ -130,6 +129,7 @@ Usding the Space X API, we have collected and collated all the most relevant Spa
 Description of Feature
 
 ![image4][image4]
+
 ### Feature 3
 
 Description of Feature
@@ -201,6 +201,7 @@ What aspects of this final build contribute to the `Above And Beyond` Component 
 ## Final Outcome
 
 ### Mockups
+
 
 ![image9][image9]
 <br>
