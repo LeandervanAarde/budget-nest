@@ -14,6 +14,8 @@ import TotalExpense from './subcomponents/TotalExpense';
 import PillContainer from './subcomponents/Button/PillContainer';
 import { getValue } from '@testing-library/user-event/dist/utils';
 import { IndividualTd } from './subcomponents/householdInfo/IndividualTd';
+import logo from "..//Assests/Logo.svg";
+import Individual from './subcomponents/Individual/Individual';
 
 const Main = () => {
 
@@ -40,6 +42,7 @@ const Main = () => {
     const [allExpenses, setAllExpenses] = useState([]);
     const [expenseName, setExpenseName] = useState();
     const [expenseAm, setExpenseAm] = useState();
+    const [individualTotal, setIndividualTotal] = useState(0);
 
     const clickValue = () => {
         //get the value
@@ -121,6 +124,7 @@ const Main = () => {
         let val = e.target.value;
         let memberDetails = getMemberDetails(householdIncome, val);
         setIndividual(memberDetails);
+
     }
 
     const result = individual
@@ -149,15 +153,15 @@ const Main = () => {
         ))
     }
 
-
+    // console.log(allExpenses)
     useEffect(() => {
         const expenseNam = allExpenses.map((e) => (e.name));
-        const expenseAmount = allExpenses.map((e) => (e.amount));
+        const expenseAmount = allExpenses.map((e) => parseInt(e.amount));
         setExpenseName(expenseNam)
-        setExpenseAm(expenseAmount);
-        const gettotalEx = getTotal(expenseAmount);
+        const getExpenseTot = getTotal(expenseAmount);
+        setExpenseAm(getExpenseTot);
+    }, [allExpenses])
 
-    }, [])
 
     return (
         <>
@@ -195,7 +199,7 @@ const Main = () => {
 
                 <Col md={{ span: 11 }}>
                     <form>
-                        <input ref={name} className='input' aria-label='name'  placeholder='Enter name...' type={"text"} id='one' />
+                        <input ref={name} className='input' aria-label='name' placeholder='Enter name...' type={"text"} id='one' />
                         <input ref={income} className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"} onKeyPress={(event) => { event.key === "Enter" && clickValue() }} />
                         <Col md={2} className="butn" id="addbtn" aria-label='button'><Button function={() => (clickValue())} id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
                     </form>
@@ -242,38 +246,44 @@ const Main = () => {
                 {!cName ? (
                     <></>
                 ) :
-                    <TotalExpense
-                        number={counter}
-                        expenseName={expName}
-                        expenseAmount={expAmnt}
-                        // tableInfo = {allExpenses.map((e)=>(<IndividualTd 
-                        //     number={counter} 
-                        //     user = {result.name}
-                        //     amount = {Math.round(result.afterTx/12)}
-                        //     expense= {e.name}
-                        //     expNm ={e.amount} 
-                        //     save={savings.Percent + "%"}
-                        //     saveA={Math.round(savings.Amount)}
-                        // />
-                        // ))}
-                        onC={selectMember}
-                        Btn={<Button id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD EXPENSE" function={getExpenses} />}
-                        names={householdIncome.map((item) => <option value={item.name} >{item.name}</option>)}
-                        children={saveArr.map((e) => (<PillContainer pct={e} val={Math.round((e * 100)) + "%"} func={getSavings}
+                    <>
+                        <TotalExpense
+                            number={counter}
+                            expenseName={expName}
+                            expenseAmount={expAmnt}
+                            onC={selectMember}
+                            Btn={<Button id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD EXPENSE" function={getExpenses} />}
+                            names={householdIncome.map((item) => <option value={item.name} >{item.name}</option>)}
+                            children={saveArr.map((e) => (<PillContainer pct={e} val={Math.round((e * 100)) + "%"} func={getSavings}
+                            />))}
 
-                        />))}
-                    />}
+                        />
 
-                <Col md={5} className='totalIndividual'>
-                    <h2 className='finalOut'>Hello</h2>
-                    <h5 className='finalOut'>Income P/M: R {Math.round(result.afterTx / 12)}</h5>
-                    <h5 className='finalOut'>Person income</h5>
-                    <h5 className='finalOut'>Savings: {savings.Percent + "%"}</h5>
-                    <h5 className='finalOut'>Savings Amount: {Math.round(savings.Amount)}</h5>
-                    <h5 className='finalOut'>Expenses</h5>
-                    <hr className='divider'></hr>
-                    <h1 className='finalOut'>Total Income</h1>
-                </Col>
+                        {incomes.length > 0 ?
+
+                            <Individual
+                                name={individual.name}
+                                monthlyInc={Math.round(result.afterTx / 12)}
+                                yearlyInc={individual.YearlyIncome}
+                                savings={savings.Percent + "%"}
+                                savingsA={Math.round(savings.Amount)}
+                                expenseA={expenseAm}
+                                outCome={!expenseAm
+                                    ? 0
+                                    : [!savings.Amount
+                                        ? Math.round(result.afterTx / 12) - expenseAm
+                                        : Math.round(result.afterTx / 12) - expenseAm - Math.round(savings.Amount)]}
+                            />
+                            :
+                            <Col md={5} className='totalIndividual'>
+                                <img className='containerLogo' src={logo} />
+                            </Col>
+                        }
+                    </>
+                }
+
+
+
             </Col>
         </>
     );

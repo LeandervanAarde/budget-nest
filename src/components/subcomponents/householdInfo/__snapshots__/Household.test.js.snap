@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test the household component matches snap 1`] = `
+<tr>
+  <td>
+     
+  </td>
+  <td>
+    Leander
+    Riaan
+    Nina
+  </td>
+  <td>
+     R 
+    12000
+    300000
+    144000
+  </td>
+  <td />
+  <td />
+  <td />
+</tr>
+`;
+
+exports[`Test the household component matches snap 2`] = `
+<tr>
+  <td>
+     
+  </td>
+  <td>
+    Leander
+    Riaan
+    Nina
+  </td>
+  <td>
+     R 
+    12000
+    300000
+    144000
+  </td>
+  <td />
+  <td />
+  <td />
+</tr>
+`;

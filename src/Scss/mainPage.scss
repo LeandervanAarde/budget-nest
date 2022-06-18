@@ -5,8 +5,7 @@
     padding: 1%;
     display: inline-block;
     padding: 0 !important;
-
-
+    
     h2 {
         color: white;
         margin-left: 5vw;
@@ -142,5 +141,19 @@
     margin-top: 2vh;
     margin-left: 4vw;
     @include shadow;
+   }
+
+   .divider{
+    height: 2px;
+    background-color: white;
+    width: 25vw !important;
+    margin-left: 3vw;
+   }
+
+   .containerLogo{
+        width: 50%;
+        height: auto;
+        margin-left: 25%;
+       margin-top: 1vh;
    }
 }

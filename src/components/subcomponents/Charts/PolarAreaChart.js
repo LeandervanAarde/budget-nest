@@ -31,7 +31,7 @@ const PolarAreaChart = (props) => {
                             display: true,
                             centerPointLabels: true,
                             font: {
-                                size: 24
+                                size: 10
                             }
                         }
                     }

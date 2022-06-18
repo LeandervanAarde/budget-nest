@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test the household component matches snap 1`] = `
+<div
+  className="infoBlock col-md-3"
+>
+  <h4
+    className="text-center"
+  >
+    Some heading that is reusable
+  </h4>
+  <p
+    className="text-center"
+  >
+    R 14000.00
+  </p>
+</div>
+`;
+
+exports[`Test the household component matches snap 2`] = `
+<div
+  className="infoBlock col-md-3"
+>
+  <h4
+    className="text-center"
+  >
+    Some heading that is reusable
+  </h4>
+  <p
+    className="text-center"
+  >
+    R 14000.00
+  </p>
+</div>
+`;

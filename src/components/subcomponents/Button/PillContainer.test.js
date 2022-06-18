@@ -23,3 +23,4 @@ describe("Testing the pill container", () =>{
         expect(element[0]).toMatchSnapshot();
     });
 });
+
