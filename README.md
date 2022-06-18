@@ -78,6 +78,7 @@ A nice introduction to this amazing project of mine.
 * [Technology Name](path/to/technology/website)
 
 
+
 <!-- GETTING STARTED -->
 <!-- Make sure to add appropriate information about what prerequesite technologies the user would need and also the steps to install your project on their own mashines -->
 ## Getting Started
