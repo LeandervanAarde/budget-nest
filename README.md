@@ -65,8 +65,8 @@
 <!--PROJECT DESCRIPTION-->
 ## About the Project
 <!-- header image of project -->
-![image1](https://drive.google.com/uc?export=view&id=1UH4OhB_J3WRT3ebfDSvTe1lIpC7kVpMN)
-
+![image1](https://drive.google.com/uc?export=view&id=1ygReZG2dQx5cSUzZeJiPnNOWSM5_A80Z)
+<!-- 1UH4OhB_J3WRT3ebfDSvTe1lIpC7kVpMN -->
 ### Project Description
 
 A nice introduction to this amazing project of mine.
