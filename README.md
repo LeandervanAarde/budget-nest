@@ -17,7 +17,7 @@
 <p align="center">
 
   <a href="https://github.com/LeandervanAarde/budget-nest">
-    <img src="https://drive.google.com/uc?export=view&id=1QaFkX87WJyIMu8TMQ9AFD1b8DUQZQ_6O" alt="Logo" width="140" height="140">
+    <img src="https://drive.google.com/uc?export=view&id=1z774ujlhRg6xsgnICGL_N6jVTPHwFj8E" alt="Logo" width="140" height="140">
   </a>
   
   <h3 align="center">Budget Nest</h3>
@@ -76,6 +76,7 @@ A nice introduction to this amazing project of mine.
 * [React](https://reactjs.org/)
 * [Technology Name](path/to/technology/website)
 * [Technology Name](path/to/technology/website)
+
 
 <!-- GETTING STARTED -->
 <!-- Make sure to add appropriate information about what prerequesite technologies the user would need and also the steps to install your project on their own mashines -->
