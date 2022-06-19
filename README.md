@@ -145,30 +145,7 @@ See the incomes that have been added on chartsjs, this will showcase individual 
 
 See what your income is after you enter all your expenses have been calculated and savings amount has been selected
 
-![image5](https://drive.google.com/uc?export=view&id=1E_jGjbXeIMBmt8fmVScJbbWwPWsQbCKp)
-
-
-
-<!-- CONCEPT PROCESS -->
-<!-- Briefly explain your concept ideation process -->
-<!-- here you will add things like wireframing, data structure planning, anything that shows your process. You need to include images-->
-## Concept Process
-
-The `Conceptual Process` is the set of actions, activities and research that was done when starting this project.
-
-### Ideation
-
-![image5][image5]
-<br>
-![image6][image6]
-
-### Wireframes
-
-![image7][image7]
-
-### Custom UI
-
-![image8][image8]
+![image5](https://drive.google.com/uc?export=view&id=1B7zKSuGtwLjqDj0LJTPRZR1SwCSKpd5m)
 
 <!-- DEVELOPMENT PROCESS -->
 ## Development Process
@@ -180,34 +157,35 @@ The `Development Process` is the technical implementations and functionality don
 <!-- This is your time to shine, explain the technical nuances of your project, how did you achieve the final outcome!-->
 
 * Utilized React `Charts.JS` dependency for Data visualization
-* Implemented Routing with `React-Router v6`.
-* API End Point: link Here 
-* `Plugin` for this.
-* ETC.
+* Implemented Routing with `Jest and React Testing Library`.
+* React Scroll for local navigation
 
 #### Highlights
 <!-- stipulated the highlight you experienced with the project -->
-* What was good about this project, what did you learn.
-* What aspects did you enjoy.
+* I learned about the importance of Unit testing and the value that it holds within industry.
+* Gained insights into how to refactor code in order to get the best possible outcome. This will be implemented in future projects
+* I learned about the different types of testing. While I am aware that this is a specialisation, I would like to learn more about it in the future. 
 
 #### Challenges
 <!-- stipulated the challenges you faced with the project and why you think you faced it or how you think you'll solve it (if not solved) -->
-* Bugs.
-* Bugs.
+* Charts were not able to be tested as they were registered as SVG elements and not components, thus making the data inaccesible to me (as far as I was aware).
+* Values showing NaN even though initial state was set to 0
+* Learning testing was one of the biggest challenges, this process was tedious to me and didn't make sense due to the fact that it was front end testing that could be visually seen if there was a bug. The challenge I had faced within the actual testing was understanding how to use the tests and that more tests did not mean they were better tests
+* PHP testing remains a challenge, this aspect doesn't make sense to me as of yet, but I do see the value of testing it. 
 
 
 #### Above And Beyond
 
 What aspects of this final build contribute to the `Above And Beyond` Component of your brief?
 <!-- what did you learn outside of the classroom and implement into your project-->
-* Name of Skill Explored.
-* Explain your understanding and execution of above skill.
+* React Scroll
+* React scroll is a dependancy that is similiar to React-Router, with the exception of navigation to sections of the component instead of rendering a new component. 
 
 ### Future Implementation
 <!-- stipulate functionality and improvements that can be implemented in the future. -->
 
-* Future 1.
-* Future 2.
+* In future I would like to implement more charts to visualise all data
+* Take more of a component based development approach, this project was very dependant on the one component and I would like to utilise the power of React in a better manor in future. 
 
 <!-- MOCKUPS -->
 ## Final Outcome
@@ -217,6 +195,7 @@ What aspects of this final build contribute to the `Above And Beyond` Component 
 
 ![image9][image9]
 <br>
+
 ![image10][image10]
 
 <!-- VIDEO DEMONSTRATION -->
