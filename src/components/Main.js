@@ -70,6 +70,8 @@ const Main = () => {
         } else {
             alert("person already in table");
         }
+        document.querySelector(".input").value = "";
+        document.getElementById("moneyIn").value = '';
     }
 
     const deleteMember = (keyVal) =>{
@@ -209,7 +211,7 @@ const Main = () => {
                 <Col md={{ span: 11 }}>
                     <form>
                         <input ref={name} className='input' aria-label='name' placeholder='Enter name...' type={"text"} id='one' />
-                        <input ref={income} className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"} onKeyPress={(event) => { event.key === "Enter" && clickValue() }} />
+                        <input id='moneyIn' ref={income} className='input' aria-label='income' name='income' placeholder='Enter amount...' type={"number"} onKeyPress={(event) => { event.key === "Enter" && clickValue() }} />
                         <Col md={2} className="butn" id="addbtn" aria-label='button'><Button function={() => (clickValue())} id={"add"} icon={<RiMoneyDollarCircleLine color={'white'} size={25} />} text="ADD INCOME" /></Col>
                     </form>
                 </Col>
@@ -275,7 +277,7 @@ const Main = () => {
                                 name={individual.name}
                                 monthlyInc={Math.round(result.afterTx / 12)}
                                 yearlyInc={individual.YearlyIncome}
-                                savings={savings.Percent + "%"}
+                                savingsP={+" "+savings.Percent + "%"}
                                 savingsA={Math.round(savings.Amount)}
                                 expenseA={expenseAm}
                                 outCome={!expenseAm

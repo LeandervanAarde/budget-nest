@@ -82,7 +82,7 @@ describe("Testing components in the main Component...", () => {
         test("Testing to see if the name input is empty on render...", () => {
             let nameInput = screen.getByPlaceholderText(/Enter name.../i);
          
-            expect(nameInput.value).toBe("");
+            expect(nameInput.value).toBe(""); 
         
         });
 
@@ -119,7 +119,6 @@ describe("Testing components in the main Component...", () => {
             const element = screen.getByText(/3%/i).parentElement;
             expect(element).toBeInTheDocument();
         });
-
     });
 
 });

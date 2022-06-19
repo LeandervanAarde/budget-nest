@@ -10,7 +10,7 @@ import renderer from 'react-test-renderer';
 //         );
 //     const testInstance = testRender.root;
 //     expect(testInstance.findByType(BarChart).props.name).toBe["Leander", "Joshua", "Dae", "Matthew", "Camerom"];
-// });
+// }); 
 
 // test("matches snap", async() =>{
 //     let root;

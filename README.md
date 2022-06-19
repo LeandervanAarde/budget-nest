@@ -111,7 +111,17 @@ Run the following in the command-line to install all the required dependencies:
    npm install
    ```
 
-4. An API key is not required
+4. Install Dependencies </br>
+Run the following in the commandline/Terminal to run the tests:
+   ```sh
+  npm test
+   ```
+OR run the following to see the code coverage of the tests
+  ```sh
+    npm test -- --coverage
+  ```
+
+
 
 <!-- FEATURES AND FUNCTIONALITY-->
 <!-- You can add the links to all of your imagery at the bottom of the file as references -->
@@ -122,20 +132,21 @@ Run the following in the command-line to install all the required dependencies:
 
 ### A budgeting website getting you on the right track!  
 
-Using Jest and RTL , this project was able to be tested and prepared for the best outcome! 
+Enter all members of your household in order to see a total tax bracket, total household income and income after tax 
+<!-- https://drive.google.com/file/d/1MflpyN2sWP3843t561NfatYW8lssk4Bw/view?usp=sharing -->
+![image3](https://drive.google.com/uc?export=view&id=1MflpyN2sWP3843t561NfatYW8lssk4Bw)
+### Visualised data for your household income
 
-![image3][image3]
-### Feature 2
+See the incomes that have been added on chartsjs, this will showcase individual incomes, incomes after tax and tax amounts. 
 
-Description of Feature
+![image4](https://drive.google.com/uc?export=view&id=1E_jGjbXeIMBmt8fmVScJbbWwPWsQbCKp)
 
-![image4][image4]
+### Manage your expenses and savings
 
-### Feature 3
+See what your income is after you enter all your expenses have been calculated and savings amount has been selected
 
-Description of Feature
+![image5](https://drive.google.com/uc?export=view&id=1E_jGjbXeIMBmt8fmVScJbbWwPWsQbCKp)
 
-![image5][image5]
 
 
 <!-- CONCEPT PROCESS -->

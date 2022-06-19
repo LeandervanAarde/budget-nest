@@ -25,5 +25,5 @@ describe("Testing the UI for the totalExpense Component", () =>{
         userEvent.type(amountInput, "1000");
         expect(amountInput.value).toBe("1000")
         expect(nameInput.value).toBe("Food and Water")
-    });
+    }); 
 })
