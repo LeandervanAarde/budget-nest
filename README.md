@@ -114,13 +114,13 @@ Run the following in the command-line to install all the required dependencies:
 4. Install Dependencies </br>
 Run the following in the commandline/Terminal to run the tests:
    ```sh
-  npm test
+   npm test
    ```
 
  5. run the following to see the code coverage of the tests </br>
-  ```sh
-    npm test -- --coverage
-  ```
+   ```sh
+   npm test -- --coverage
+   ```
 
 
 
