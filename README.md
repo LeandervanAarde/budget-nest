@@ -116,6 +116,7 @@ Run the following in the commandline/Terminal to run the tests:
    ```sh
   npm test
    ```
+   
 OR run the following to see the code coverage of the tests
   ```sh
     npm test -- --coverage
@@ -176,7 +177,6 @@ The `Development Process` is the technical implementations and functionality don
 
 #### Above And Beyond
 
-What aspects of this final build contribute to the `Above And Beyond` Component of your brief?
 <!-- what did you learn outside of the classroom and implement into your project-->
 * React Scroll
 * React scroll is a dependancy that is similiar to React-Router, with the exception of navigation to sections of the component instead of rendering a new component. 
