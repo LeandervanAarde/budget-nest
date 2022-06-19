@@ -198,6 +198,22 @@ The `Development Process` is the technical implementations and functionality don
 
 ![image10][image10]
 
+### Tests preview
+
+
+![image11](https://drive.google.com/uc?export=view&id=1zO6qsn2wrcpfAUs3-_vqL6IHPOvi-az0)
+
+<br>
+
+### Code coverage
+
+
+![image11](https://drive.google.com/uc?export=view&id=10jhz91KOtkHgXvgG_0BUFj0hXApc75I8)
+<br>
+
+
+
+
 <!-- VIDEO DEMONSTRATION -->
 ### Video Demonstration
 
