@@ -193,23 +193,20 @@ The `Development Process` is the technical implementations and functionality don
 ### Mockups
 
 
-![image9][image9]
+![image9](https://drive.google.com/uc?export=view&id=1UH4OhB_J3WRT3ebfDSvTe1lIpC7kVpMN)
 <br>
 
-![image10][image10]
+![image10](https://drive.google.com/uc?export=view&id=1B7zKSuGtwLjqDj0LJTPRZR1SwCSKpd5m)
 
 ### Tests preview
-
-
 ![image11](https://drive.google.com/uc?export=view&id=1zO6qsn2wrcpfAUs3-_vqL6IHPOvi-az0)
-
 <br>
+Above showcases a snippet of the tests that were run in Budget Nest
 
 ### Code coverage
-
-
 ![image11](https://drive.google.com/uc?export=view&id=10jhz91KOtkHgXvgG_0BUFj0hXApc75I8)
 <br>
+Above you can see the amount of code that was covered in the document through the implementation of tests
 
 
 
@@ -237,7 +234,7 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 <!-- LICENSE -->
 ## Contact
 
-* **Leander van Aarde** - [email@address](mailto:Leander.vaonline@gmail.com) - [@instagram_handle](https://www.instagram.com/_.leander_e/) 
+* **Leander van Aarde** - [Leander.vaonline@gmail.com](mailto:Leander.vaonline@gmail.com) - [@instagram](https://www.instagram.com/_.leander_e/) 
 * **Project Link** - https://github.com/LeandervanAarde/budget-nest
 
 <!-- ACKNOWLEDGEMENTS -->
