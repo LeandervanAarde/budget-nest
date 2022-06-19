@@ -56,7 +56,6 @@
 * :point_right: [Future Implementation](#peer-reviews)
 * :point_right: [Final Outcome](#final-outcome)
 * :point_right: [Mockups](#mockups)
-* :point_right: [Video Demonstration](#video-demonstration)
 * :point_right: [Conclusion](#conclusion)
 * :point_right: [License](#license)
 * :point_right: [Contact](#contact)
@@ -207,16 +206,6 @@ Above showcases a snippet of the tests that were run in Budget Nest
 ![image11](https://drive.google.com/uc?export=view&id=10jhz91KOtkHgXvgG_0BUFj0hXApc75I8)
 <br>
 Above you can see the amount of code that was covered in the document through the implementation of tests
-
-
-
-
-<!-- VIDEO DEMONSTRATION -->
-### Video Demonstration
-
-To see a run through of the application, click below:
-
-[View Demonstration](path/to/video/demonstration)
 
 
 See the [open issues](https://github.com/LeandervanAarde/budget-nest/pulse) for a list of proposed features (and known issues).
