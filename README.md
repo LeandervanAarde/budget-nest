@@ -116,8 +116,8 @@ Run the following in the commandline/Terminal to run the tests:
    ```sh
   npm test
    ```
-   
-OR run the following to see the code coverage of the tests
+
+* OR run the following to see the code coverage of the tests
   ```sh
     npm test -- --coverage
   ```
