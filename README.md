@@ -110,7 +110,7 @@ Run the following in the command-line to install all the required dependencies:
    npm install
    ```
 
-4. Install Dependencies </br>
+4. Running Tests </br>
 Run the following in the commandline/Terminal to run the tests:
    ```sh
    npm test
