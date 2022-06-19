@@ -4,6 +4,7 @@ import userEvent from "@testing-library/user-event";
 import Household from "./Household";
 import TestRenderer from 'react-test-renderer';
 import { act, create } from "react-test-renderer";
+import removeMember from "../../Functions/Testfunction"
 
 describe("Test the household component", () =>{
     test("Create Rendered component", () => {
@@ -29,4 +30,5 @@ describe("Test the household component", () =>{
         })
         console.log(root.toTree)
     });
+
 });

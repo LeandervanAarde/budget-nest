@@ -67,3 +67,8 @@ export const getMemberDetails = (household, name) => {
         return m.name == name
     });
 }
+
+export const removeMember = (household,keyVal) =>{
+  let value = household.filter((i, key) => key !== keyVal);
+  return value;
+};

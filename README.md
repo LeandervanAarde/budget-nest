@@ -69,15 +69,16 @@
 <!-- 1UH4OhB_J3WRT3ebfDSvTe1lIpC7kVpMN -->
 ### Project Description
 
-A nice introduction to this amazing project of mine.
+Budget Nest is a web based application that has been build with React, Chartsjs, Bootstrap, SCSS, Jest and RTL. This application focuses on giving users the opportunity to view their finances to find out what tax bracket they fall into, to list their expenses and set out an amount that they want to save. The web app will aid users in understanding their current finances through the visualisation of data through chartsjs. Budget Nests main goal is to deliver a flawless experience through making sure all features work, this is accomplished by the implementation of Jest/RTL unit testing library. 
 
 ### Built With
 
 * [React](https://reactjs.org/)
-* [Technology Name](path/to/technology/website)
-* [Technology Name](path/to/technology/website)
-
-
+* [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+* [Jest](https://jestjs.io/)
+* [Bootstrap](https://getbootstrap.com/)
+* [Chartsjs](https://www.chartjs.org/)
+* [SCSS](https://sass-lang.com/)
 
 <!-- GETTING STARTED -->
 <!-- Make sure to add appropriate information about what prerequesite technologies the user would need and also the steps to install your project on their own mashines -->
@@ -117,7 +118,7 @@ Run the following in the command-line to install all the required dependencies:
 ## Features and Functionality
 
 <!-- note how you can use your gitHub link. Just make a path to your assets folder -->
-![image2](https://raw.githubusercontent.com/MikeMaynard14/termoneexample/main/src/assets/mockup.jpg)
+![image2](https://drive.google.com/uc?export=view&id=1UH4OhB_J3WRT3ebfDSvTe1lIpC7kVpMN)
 
 ### A budgeting website getting you on the right track!  
 

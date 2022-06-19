@@ -8,7 +8,7 @@ import Household from './subcomponents/householdInfo/Household';
 import DoughnutChart from './subcomponents/Charts/DougnutChart';
 import BarChart from './subcomponents/Charts/BarChart';
 import PolarAreaChart from './subcomponents/Charts/PolarAreaChart';
-import { getBracket, getTotal, getNewTotal, calcMonths, getSavePct, checkPerson, getMemberDetails } from './Functions/Testfunction';
+import { getBracket, getTotal, getNewTotal, calcMonths, getSavePct, checkPerson, getMemberDetails, removeMember } from './Functions/Testfunction';
 import Loader from './subcomponents/Loader/Loader';
 import TotalExpense from './subcomponents/TotalExpense';
 import PillContainer from './subcomponents/Button/PillContainer';
@@ -72,6 +72,13 @@ const Main = () => {
         }
     }
 
+    const deleteMember = (keyVal) =>{
+        // let newArr = householdIncome.filter((i, key) => key !== keyVal)
+        let newArr = removeMember(householdIncome, keyVal);
+        console.log(newArr)
+        setHouseHoldIncome(newArr)
+  }
+
     useEffect(() => {
 
         //result from clickValue function
@@ -119,6 +126,8 @@ const Main = () => {
 
         setYIncome(yearIncome);
     }, [householdIncome])
+
+ 
 
     const selectMember = (e) => {
         let val = e.target.value;
@@ -225,6 +234,7 @@ const Main = () => {
                                 name={e.name}
                                 amount={e.YearlyIncome}
                                 taxBrack={e.Bracket} taxAmount={e.taxAmount} afterTax={e.afterTx}
+                                delete ={key=>deleteMember(index)}
                             />
                         ))}
                     </tbody>

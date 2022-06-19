@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import Main from "../Main";
 import { BrowserRouter as Router } from 'react-router-dom';
 import userEvent from "@testing-library/user-event";
-import { getBracket, getTotal, getNewTotal, getSavePct, getMemberDetails, checkPerson } from "../Functions/Testfunction";
+import { getBracket, getTotal, getNewTotal, getSavePct, getMemberDetails, checkPerson, removeMember } from "../Functions/Testfunction";
 import Household from "../subcomponents/householdInfo/Household";
 import TestRenderer from 'react-test-renderer';
 import { act, create } from "react-test-renderer";
@@ -65,6 +65,16 @@ describe("Testing components in the main Component...", () => {
             expect(latest).toBeTruthy();
         });
 
+        test("To see if the remove function works", () =>{
+            const people = [
+                {name: "Leander van Aarde", amount: 25500, keyVal:0},
+                {name: "Shanre Scheepers", amount: 34000, keyVal:1},
+                {name: "Vian Du Plessis", amount: 25000, keyVal :2}
+            ];
+            let newArr = removeMember(people, people[1].keyVal);
+            expect(newArr.length).not.toContain({name: "Shanre Scheepers", amount: 34000, keyVal:1});
+            console.log(newArr)
+        });
     });
 
     describe("Testing all the DOM Elements...", () => {
@@ -108,7 +118,8 @@ describe("Testing components in the main Component...", () => {
         test('To see if pillcontainer function works', () => {
             const element = screen.getByText(/3%/i).parentElement;
             expect(element).toBeInTheDocument();
-        })
+        });
+
     });
 
 });

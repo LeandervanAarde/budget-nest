@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Container } from "react-bootstrap";
 import { Routes, Route } from 'react-router-dom';
 import './index.scss';
@@ -9,7 +9,7 @@ import PolarAreChart from "./components/subcomponents/Charts/PolarAreaChart";
 
 function App() {
   const [showPage, setShowPage] = useState(false);
-
+  
   const showDash = () => {
     setShowPage(true);
   };
