@@ -211,7 +211,7 @@ See the [open issues](https://github.com/LeandervanAarde/budget-nest/pulse) for 
 <!-- AUTHORS -->
 ## Authors
 
-* **Your Name & Surname** - [MikeMaynard14](https://github.com/MikeMaynard14)
+* **Leander van Aarde** - [Leander van Aarde](https://github.com/LeandervanAarde/)
 
 <!-- LICENSE -->
 ## License
@@ -227,9 +227,6 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 <!-- all resources that you used and Acknowledgements here -->
-* [Resource Name](path/to/resource)
-* [Resource Name](path/to/resource)
-* [Resource Name](path/to/resource)
-* [Resource Name](path/to/resource)
-* [Resource Name](path/to/resource)
-
+* [Old Mutual tax calculator](https://www.oldmutual.co.za/personal/tools-and-calculators/income-tax-calculator/)
+* [Unsplash](https://unsplash.com/photos/lZ_4nPFKcV8)
+* [React Icons](https://react-icons.github.io/react-icons/)
