@@ -206,7 +206,7 @@ To see a run through of the application, click below:
 [View Demonstration](path/to/video/demonstration)
 
 
-See the [open issues](https://github.com/MikeMaynard14/termoneexample/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/LeandervanAarde/budget-nest/pulse) for a list of proposed features (and known issues).
 
 <!-- AUTHORS -->
 ## Authors
@@ -221,8 +221,8 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 <!-- LICENSE -->
 ## Contact
 
-* **Your Name & Surname** - [email@address](mailto:email@address) - [@instagram_handle](https://www.instagram.com/instagram_handle/) 
-* **Project Link** - https://github.com/MikeMaynard14/termoneexample
+* **Leander van Aarde** - [email@address](mailto:Leander.vaonline@gmail.com) - [@instagram_handle](https://www.instagram.com/_.leander_e/) 
+* **Project Link** - https://github.com/LeandervanAarde/budget-nest
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
